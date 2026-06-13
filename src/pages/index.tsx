@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence, useMotionValue, useTransform } from 'framer-motion';
-import { Droplet, Shield, Settings, Award, Users, CheckCircle, ArrowRight, Star, HelpCircle, ChevronDown, Check } from 'lucide-react';
+import { Droplet, Shield, Settings, Award, Users, CheckCircle, ArrowRight, Star, ChevronDown, Check, Info, ShieldAlert, Zap, Heart } from 'lucide-react';
 import { PRODUCTS, BLOGS, TEAM } from '../data/db';
 import { EnquiryModal } from '../components/EnquiryModal';
 
@@ -36,21 +36,21 @@ const TiltCard: React.FC<{ children: React.ReactNode; className?: string }> = ({
       onMouseLeave={handleMouseLeave}
       className={`transition-all duration-100 ease-out ${className}`}
     >
-      <div style={{ transform: "translateZ(25px)" }} className="h-full w-full">
+      <div style={{ transform: "translateZ(20px)" }} className="h-full w-full">
         {children}
       </div>
     </motion.div>
   );
 };
 
-// Scroll Reveal Wrapper
+// Smooth Scroll Reveal Wrapper
 const ScrollReveal: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.7, ease: "easeOut" }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
     >
       {children}
     </motion.div>
@@ -64,7 +64,7 @@ const FAQItem: React.FC<{ question: string; answer: string }> = ({ question, ans
     <div className="border-b border-blue-50/60 pb-4">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex justify-between items-center text-left py-3 font-semibold text-slate-800 hover:text-primary transition-colors focus:outline-none"
+        className="w-full flex justify-between items-center text-left py-4 font-semibold text-slate-800 hover:text-primary transition-colors focus:outline-none"
       >
         <span>{question}</span>
         <ChevronDown className={`h-5 w-5 text-slate-400 transition-transform duration-300 ${isOpen ? 'rotate-180 text-primary' : ''}`} />
@@ -75,7 +75,7 @@ const FAQItem: React.FC<{ question: string; answer: string }> = ({ question, ans
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
             className="overflow-hidden"
           >
             <p className="text-sm text-slate-600 leading-relaxed pt-1 pb-3">{answer}</p>
@@ -145,36 +145,7 @@ const AnimatedWaves = () => (
 export default function Home() {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState('');
-
-  // Interactive TDS Calculator State
-  const [tdsValue, setTdsValue] = useState(250);
-  const [tdsRecommendation, setTdsRecommendation] = useState({
-    title: "Seajal UV + UF Purifier",
-    desc: "For low TDS municipal water. Provides mineral-rich taste with micro-biological safety without lowering necessary minerals.",
-    badge: "Ideal for Municipal Water"
-  });
-
-  useEffect(() => {
-    if (tdsValue < 300) {
-      setTdsRecommendation({
-        title: "Seajal Active UV + UF Filtration",
-        desc: "Best choice. Municipal tap water contains required minerals; UV/UF kills active pathogents without stripping natural taste.",
-        badge: "Low TDS Recommendation"
-      });
-    } else if (tdsValue >= 300 && tdsValue <= 900) {
-      setTdsRecommendation({
-        title: "Seajal Zico Cop Alkaline RO+UV",
-        desc: "Highly Recommended. Eliminates excess heavy metals, chemicals, and balances pH values to alkaline levels.",
-        badge: "Standard RO Fitment"
-      });
-    } else {
-      setTdsRecommendation({
-        title: "Seajal Dual Sand Softener + RO Plant",
-        desc: "Hardness is extremely high. Requires an ion-exchange Water Softener setup prior to RO purification to prevent Scaling.",
-        badge: "Borewell & Hard Water Solution"
-      });
-    }
-  }, [tdsValue]);
+  const [activeStage, setActiveStage] = useState(0);
 
   const openEnquiry = (productName: string) => {
     setSelectedProduct(productName);
@@ -206,21 +177,27 @@ export default function Home() {
     }
   ];
 
-  // 7 Stages
+  const benefits = [
+    { title: "Free Source Water Audit", desc: "Our engineers visit your site in Pune to check hardness and TDS levels free of cost.", icon: Droplet },
+    { title: "Same-Day Dispatch", desc: "Domestic filter installations are completed within 24 hours of booking confirmation.", icon: Zap },
+    { title: "Mineral-Guard Tech", desc: "Unlike standard filters, Seajal preserves calcium and magnesium minerals during filtration.", icon: Heart },
+    { title: "ISO Certified Build Quality", desc: "All vessels, membranes, and fittings comply with global food-grade safety guidelines.", icon: Shield }
+  ];
+
   const stages = [
-    { num: "01", name: "Spun Dust Filter", desc: "Filters physical silt, sand, mud, and rust particles." },
-    { num: "02", name: "Pre-Carbon Block", desc: "Extracts volatile organic compounds, bad odor, and chlorine." },
-    { num: "03", name: "RO Membrane", desc: "Tackles salts, heavy metals, pesticides, and chemical TDS." },
-    { num: "04", name: "UV Disinfection", desc: "Renders active virus strains and harmful bacteria harmless." },
-    { num: "05", name: "Active Copper", desc: "Enriches the drinking water with antibacterial copper ions." },
-    { num: "06", name: "Bio-Alkaline", desc: "Regulates natural pH values back to a healthy 8.5+ range." },
-    { num: "07", name: "Ultra Filtration (UF)", desc: "A final polishing stage ensuring absolute crystal clarity." }
+    { num: "01", name: "Spun Dust Filter", desc: "Filters physical silt, sand, mud, and rust particles. Acts as the first line of defense to protect sensitive membranes downstream.", icon: Shield },
+    { num: "02", name: "Pre-Carbon Block", desc: "Extracts volatile organic compounds, bad odor, chlorine, and herbicides. Restores natural clean water sweetness.", icon: Settings },
+    { num: "03", name: "RO Membrane", desc: "Tackles dissolved salts, heavy metals, arsenic, fluorides, and chemical TDS. Lowers TDS down to safe consumption levels.", icon: Droplet },
+    { num: "04", name: "UV Disinfection", desc: "Renders active virus strains, harmful bacteria, and pathogens harmless by disrupting their cellular DNA.", icon: Shield },
+    { num: "05", name: "Active Copper", desc: "Enriches the drinking water with antibacterial copper ions. Mimics traditional copper storage vessel health benefits.", icon: Award },
+    { num: "06", name: "Bio-Alkaline", desc: "Regulates natural pH values back to a healthy 8.5+ range, providing essential hydration antioxidants.", icon: Droplet },
+    { num: "07", name: "Ultra Filtration (UF)", desc: "A final capillary membrane polishing stage ensuring absolute crystal clarity and trapping suspended particles.", icon: CheckCircle }
   ];
 
   return (
-    <div className="space-y-28 pb-20 relative bg-slate-50/50">
+    <div className="relative bg-[#f8fafc] space-y-36 pb-24">
       {/* Light Ocean Hero Banner with photorealistic Sea Water Backdrop */}
-      <section className="relative overflow-hidden bg-slate-900 text-white pt-24 pb-48">
+      <section className="relative overflow-hidden bg-slate-900 text-white pt-28 pb-48">
         {/* Full-bleed Sea background layer */}
         <div className="absolute inset-0 z-0 opacity-70">
           <img
@@ -228,14 +205,14 @@ export default function Home() {
             alt="Deep Sea Water Background"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-blue-950/30 via-slate-900/40 to-slate-50" />
+          <div className="absolute inset-0 bg-gradient-to-b from-blue-950/30 via-slate-900/40 to-[#f8fafc]" />
         </div>
 
         <BubbleParticles />
         
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="space-y-6 text-center lg:text-left"
@@ -294,10 +271,10 @@ export default function Home() {
         <AnimatedWaves />
       </section>
 
-      {/* Services Grid */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-12 relative z-10 -mt-24">
+      {/* Services Grid Section */}
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 py-12">
         <ScrollReveal>
-          <div className="text-center max-w-3xl mx-auto space-y-4">
+          <div className="text-center max-w-3xl mx-auto space-y-4 mb-20">
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">What We Do</h2>
             <p className="text-slate-600">
               We offer specialized water filtration and softening services configured by highly experienced design engineers.
@@ -332,36 +309,77 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 7-Stage Purification Interactive Timeline */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-12">
+      {/* 7-Stage Purification Interactive Console Dashboard */}
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
         <ScrollReveal>
-          <div className="text-center max-w-3xl mx-auto space-y-4">
+          <div className="text-center max-w-3xl mx-auto space-y-4 mb-20">
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">7-Stage Seajal Process</h2>
             <p className="text-slate-600">
-              How our advanced multi-barrier filtration system guarantees clean and healthy minerals.
+              Click on each filtration layer to explore the scientific diagnostics inside our smart purifiers.
             </p>
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {stages.map((stg) => (
-            <div
-              key={stg.num}
-              className="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
-            >
-              <div className="space-y-3">
-                <span className="text-3xl font-extrabold text-blue-200">{stg.num}</span>
-                <h4 className="text-base font-bold text-slate-800">{stg.name}</h4>
-                <p className="text-xs text-slate-500 leading-relaxed">{stg.desc}</p>
-              </div>
-              <div className="h-1 bg-sky-100 w-12 rounded-full mt-4" />
-            </div>
-          ))}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+          {/* Stage list controller */}
+          <div className="lg:col-span-1 space-y-2">
+            {stages.map((stg, index) => {
+              const isActive = index === activeStage;
+              return (
+                <button
+                  key={stg.num}
+                  onClick={() => setActiveStage(index)}
+                  className={`w-full flex items-center gap-4 p-4 rounded-2xl border transition-all text-left focus:outline-none ${
+                    isActive
+                      ? 'bg-primary text-white border-primary shadow-lg shadow-sky-500/10 scale-102 font-bold'
+                      : 'bg-white text-slate-700 border-slate-100 hover:bg-slate-50'
+                  }`}
+                >
+                  <span className={`text-lg font-black ${isActive ? 'text-cyan-200' : 'text-slate-300'}`}>{stg.num}</span>
+                  <span className="text-sm">{stg.name}</span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Interactive Console display */}
+          <div className="lg:col-span-2">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeStage}
+                initial={{ opacity: 0, x: 20, rotateY: -5 }}
+                animate={{ opacity: 1, x: 0, rotateY: 0 }}
+                exit={{ opacity: 0, x: -20, rotateY: 5 }}
+                transition={{ duration: 0.4 }}
+                className="bg-white p-8 sm:p-10 rounded-3xl border border-slate-100 shadow-xl space-y-6 relative overflow-hidden"
+              >
+                {/* Background water droplet icon outline */}
+                <div className="absolute right-4 bottom-4 text-slate-50/60 pointer-events-none">
+                  <Droplet className="h-40 w-40 fill-current" />
+                </div>
+
+                <span className="text-sm font-bold uppercase tracking-widest text-primary">Stage Diagnostic {stages[activeStage].num}</span>
+                
+                <h3 className="text-2xl font-black text-slate-900">{stages[activeStage].name}</h3>
+                
+                <p className="text-slate-600 leading-relaxed text-sm sm:text-base">{stages[activeStage].desc}</p>
+                
+                <div className="pt-6 border-t border-slate-100 flex flex-wrap gap-4 items-center">
+                  <span className="flex items-center gap-1.5 text-xs font-semibold text-emerald-600 bg-emerald-50 px-3 py-1.5 rounded-lg border border-emerald-100">
+                    <CheckCircle className="h-4 w-4" /> Active Pure
+                  </span>
+                  <span className="flex items-center gap-1.5 text-xs font-semibold text-primary bg-sky-50 px-3 py-1.5 rounded-lg border border-sky-100">
+                    <Info className="h-4 w-4" /> Certified Grade
+                  </span>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="bg-gradient-to-r from-slate-900 to-sky-950 py-20 text-white overflow-hidden relative">
+      {/* Stats Section with proper visual separation (Added huge margin spacing and padding) */}
+      <section className="bg-gradient-to-r from-slate-900 to-sky-950 py-36 my-28 text-white overflow-hidden relative shadow-2xl">
         <BubbleParticles />
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
@@ -374,13 +392,13 @@ export default function Home() {
                   whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: idx * 0.1 }}
-                  className="space-y-2"
+                  className="space-y-3 py-4"
                 >
-                  <div className="mx-auto h-12 w-12 rounded-full bg-white/10 flex items-center justify-center text-cyan-300 mb-3 shadow-inner">
+                  <div className="mx-auto h-14 w-14 rounded-full bg-white/10 flex items-center justify-center text-cyan-300 mb-3 shadow-inner">
                     <Icon className="h-6 w-6" />
                   </div>
-                  <p className="text-3xl sm:text-4xl font-extrabold text-white">{stat.value}</p>
-                  <p className="text-xs uppercase tracking-wider text-sky-200 font-semibold">{stat.label}</p>
+                  <p className="text-4xl font-extrabold text-white">{stat.value}</p>
+                  <p className="text-xs uppercase tracking-wider text-sky-200 font-bold">{stat.label}</p>
                 </motion.div>
               );
             })}
@@ -388,62 +406,45 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Interactive Water Quality Advisor / TDS Calculator */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-12">
+      {/* Seajal Quality Benefits Checklist (Attractive New Section replacing TDS Meter) */}
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
         <ScrollReveal>
-          <div className="text-center max-w-3xl mx-auto space-y-4">
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">Water Quality Advisor</h2>
+          <div className="text-center max-w-3xl mx-auto space-y-4 mb-20">
+            <span className="text-xs font-extrabold uppercase tracking-widest text-primary bg-sky-50 border border-sky-100 px-3 py-1.5 rounded-full">
+              Seajal Safeguards
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">Why Pune Prefers Seajal</h2>
             <p className="text-slate-600">
-              Slide the meter to your input water's approximate TDS level and get instant configuration suggestions.
+              High-end build components designed by design engineers for domestic and industrial water treatment.
             </p>
           </div>
         </ScrollReveal>
 
-        <div className="bg-white p-6 sm:p-10 rounded-3xl border border-slate-100 shadow-xl max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          {/* Slider Controls */}
-          <div className="space-y-6">
-            <div className="flex justify-between items-baseline">
-              <span className="text-sm font-bold text-slate-500 uppercase tracking-wider">Input TDS Level</span>
-              <span className="text-3xl font-extrabold text-primary">{tdsValue} <span className="text-xs text-slate-400">ppm</span></span>
-            </div>
-            <input
-              type="range"
-              min="50"
-              max="1500"
-              step="50"
-              value={tdsValue}
-              onChange={(e) => setTdsValue(Number(e.target.value))}
-              className="w-full h-2 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-primary"
-            />
-            <div className="flex justify-between text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-              <span>Municipal (50)</span>
-              <span>Standard (500)</span>
-              <span>Borewell (1500)</span>
-            </div>
-          </div>
-
-          {/* Recommendation Output */}
-          <div className="bg-sky-50/50 p-6 rounded-2xl border border-sky-100/60 space-y-4">
-            <span className="bg-primary text-white text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded-full">
-              {tdsRecommendation.badge}
-            </span>
-            <h4 className="text-lg font-bold text-slate-900">{tdsRecommendation.title}</h4>
-            <p className="text-xs text-slate-600 leading-relaxed">{tdsRecommendation.desc}</p>
-            <button
-              onClick={() => openEnquiry(`Consultation for TDS ${tdsValue} ppm`)}
-              className="text-xs font-bold text-primary flex items-center gap-1.5 hover:underline"
-            >
-              <span>Ask an expert about this setup</span>
-              <ArrowRight className="h-4 w-4" />
-            </button>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {benefits.map((b, idx) => {
+            const Icon = b.icon;
+            return (
+              <div
+                key={b.title}
+                className="bg-white p-8 rounded-3xl border border-slate-100 shadow-lg hover:border-primary/20 transition-all flex flex-col justify-between"
+              >
+                <div className="space-y-4">
+                  <div className="h-12 w-12 rounded-xl bg-blue-50/80 flex items-center justify-center text-primary">
+                    <Icon className="h-6 w-6" />
+                  </div>
+                  <h4 className="font-extrabold text-slate-900 text-base">{b.title}</h4>
+                  <p className="text-xs text-slate-500 leading-relaxed">{b.desc}</p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </section>
 
       {/* Featured Products */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-12">
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
         <ScrollReveal>
-          <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4">
+          <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-20">
             <div className="space-y-2">
               <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">Featured Products</h2>
               <p className="text-slate-600">Explore our premium range of commercial and household filters.</p>
@@ -511,9 +512,9 @@ export default function Home() {
       </section>
 
       {/* Founders and Team Section */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-12">
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
         <ScrollReveal>
-          <div className="text-center max-w-3xl mx-auto space-y-4">
+          <div className="text-center max-w-3xl mx-auto space-y-4 mb-20">
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">Our Founding Team</h2>
             <p className="text-slate-600">
               Guided by technical excellence, our leaders have configured reliable clean water structures for thousands of premises.
@@ -546,9 +547,9 @@ export default function Home() {
       </section>
 
       {/* Frequently Asked Questions (FAQ) Section */}
-      <section className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 space-y-12">
+      <section className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12">
         <ScrollReveal>
-          <div className="text-center space-y-4">
+          <div className="text-center space-y-4 mb-20">
             <h2 className="text-3xl font-bold text-slate-900">Common Questions</h2>
             <p className="text-slate-600">Find answers to water softener installation, maintenance, and filter life.</p>
           </div>
@@ -571,9 +572,9 @@ export default function Home() {
       </section>
 
       {/* Latest Blogs Section */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-12">
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
         <ScrollReveal>
-          <div className="text-center max-w-3xl mx-auto space-y-4">
+          <div className="text-center max-w-3xl mx-auto space-y-4 mb-20">
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">Latest Updates</h2>
             <p className="text-slate-600">Read the latest articles on water treatment projects, systems, and guidelines.</p>
           </div>
