@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { Search, ShoppingCart, Menu, X, Phone } from 'lucide-react';
+import { Search, ShoppingCart, Menu, X, Phone, Droplet } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { PRODUCTS, BLOGS } from '../data/db';
 
@@ -31,7 +31,6 @@ export const Header: React.FC = () => {
     }
   };
 
-  // Find quick recommendations
   const quickProducts = searchQuery.trim() 
     ? PRODUCTS.filter(p => p.name.toLowerCase().includes(searchQuery.toLowerCase())).slice(0, 3)
     : [];
@@ -45,15 +44,15 @@ export const Header: React.FC = () => {
       <header className="sticky top-0 z-40 w-full glass shadow-sm transition-all duration-300">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-20 items-center justify-between">
-            {/* Logo */}
+            {/* Logo - Water Droplet Theme */}
             <div className="flex items-center">
               <Link href="/" className="flex items-center gap-2">
-                <span className="gradient-bg text-white font-extrabold text-xl h-10 w-10 rounded-full flex items-center justify-center shadow-md">
-                  A1
+                <span className="gradient-bg text-white font-extrabold text-xl h-10 w-10 rounded-full flex items-center justify-center shadow-md relative overflow-hidden">
+                  <Droplet className="h-5 w-5 text-white fill-current animate-pulse" />
                 </span>
                 <div className="flex flex-col">
-                  <span className="text-xl font-bold tracking-tight text-primary leading-none">Seajal</span>
-                  <span className="text-[10px] uppercase font-bold tracking-widest text-secondary mt-0.5">Technologies</span>
+                  <span className="text-xl font-bold tracking-tight text-primary leading-none">SEAJAL</span>
+                  <span className="text-[9px] uppercase font-bold tracking-widest text-secondary mt-0.5">Water Technologies</span>
                 </div>
               </Link>
             </div>
@@ -196,7 +195,7 @@ export const Header: React.FC = () => {
                               className="flex items-center gap-3 p-2 rounded-xl hover:bg-slate-50 transition-colors"
                             >
                               <div className="h-10 w-10 bg-slate-100 rounded-lg overflow-hidden flex-shrink-0 flex items-center justify-center">
-                                <img src={product.image} alt={product.name} className="h-full w-full object-cover" onError={(e) => { e.currentTarget.src = 'https://placehold.co/100x100?text=AquaJ1' }} />
+                                <img src={product.image} alt={product.name} className="h-full w-full object-cover" onError={(e) => { e.currentTarget.src = 'https://placehold.co/100x100?text=Seajal' }} />
                               </div>
                               <div className="flex-1 min-w-0">
                                 <p className="text-sm font-semibold text-slate-800 truncate">{product.name}</p>

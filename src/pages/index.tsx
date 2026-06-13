@@ -221,12 +221,36 @@ export default function Home() {
               <Droplet className="h-4 w-4 text-cyan-300 animate-bounce" /> Pure Water, Pure Living
             </span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
-              Premium Water Solutions for <span className="text-cyan-300 drop-shadow-sm">Your Home & Business</span>
+              Premium Water Purification <span className="text-cyan-300 drop-shadow-sm">Plants & Softeners</span>
             </h1>
             <p className="text-lg text-blue-100 max-w-xl mx-auto lg:mx-0">
               Seajal Technologies designs state-of-the-art reverse osmosis systems and automated water softeners. Protect your health and machinery with the best water in Pune.
             </p>
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
+
+            {/* Live Filtration Loop Visualization inside Hero */}
+            <div className="bg-white/10 backdrop-blur-md border border-white/20 p-5 rounded-3xl mt-6 space-y-3 max-w-md mx-auto lg:mx-0">
+              <h4 className="text-[10px] uppercase tracking-widest font-extrabold text-cyan-300 flex items-center gap-1">
+                <Droplet className="h-3 w-3 animate-ping" /> Live Purification Path
+              </h4>
+              <div className="flex justify-between items-center gap-2 text-white">
+                <div className="flex flex-col items-center">
+                  <div className="h-8 w-8 rounded-full bg-blue-500/30 border border-blue-500/40 flex items-center justify-center text-xs">💧</div>
+                  <span className="text-[8px] uppercase font-bold text-slate-300 mt-1">Borewell</span>
+                </div>
+                <div className="flex-1 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-400" />
+                <div className="flex flex-col items-center">
+                  <div className="h-8 w-8 rounded-full bg-cyan-500/30 border border-cyan-500/40 flex items-center justify-center text-xs">⚡</div>
+                  <span className="text-[8px] uppercase font-bold text-slate-300 mt-1">RO + UV</span>
+                </div>
+                <div className="flex-1 h-0.5 bg-gradient-to-r from-cyan-400 to-emerald-400" />
+                <div className="flex flex-col items-center">
+                  <div className="h-8 w-8 rounded-full bg-emerald-500/30 border border-emerald-500/40 flex items-center justify-center text-xs">✨</div>
+                  <span className="text-[8px] uppercase font-bold text-slate-300 mt-1">Mineral</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
               <Link
                 href="/all-products/1"
                 className="bg-cyan-400 hover:bg-cyan-500 text-primary-dark font-extrabold px-8 py-4 rounded-xl shadow-lg shadow-cyan-500/25 flex items-center gap-2 transition-all hover:scale-105 active:scale-95"
@@ -378,7 +402,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stats Section with proper visual separation (Added huge margin spacing and padding) */}
+      {/* Stats Section with proper visual separation */}
       <section className="bg-gradient-to-r from-slate-900 to-sky-950 py-36 my-28 text-white overflow-hidden relative shadow-2xl">
         <BubbleParticles />
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
@@ -406,7 +430,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Seajal Quality Benefits Checklist (Attractive New Section replacing TDS Meter) */}
+      {/* Seajal Quality Benefits Checklist */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
         <ScrollReveal>
           <div className="text-center max-w-3xl mx-auto space-y-4 mb-20">
