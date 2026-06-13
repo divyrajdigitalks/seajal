@@ -219,9 +219,20 @@ export default function Home() {
 
   return (
     <div className="space-y-28 pb-20 relative bg-slate-50/50">
-      {/* Hero Banner Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-blue-50/80 via-sky-50/50 to-white pt-24 pb-48 border-b border-blue-50">
+      {/* Light Ocean Hero Banner with photorealistic Sea Water Backdrop */}
+      <section className="relative overflow-hidden bg-slate-900 text-white pt-24 pb-48">
+        {/* Full-bleed Sea background layer */}
+        <div className="absolute inset-0 z-0 opacity-70">
+          <img
+            src="/images/ocean_bg.jpg"
+            alt="Deep Sea Water Background"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-blue-950/30 via-slate-900/40 to-slate-50" />
+        </div>
+
         <BubbleParticles />
+        
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -229,26 +240,26 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="space-y-6 text-center lg:text-left"
           >
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-sky-100 px-4 py-1.5 text-sm font-semibold text-primary">
-              <Droplet className="h-4 w-4 text-secondary animate-bounce" /> Pure Water, Pure Living
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-cyan-400/20 px-4 py-1.5 text-sm font-semibold text-cyan-200 backdrop-blur-md border border-cyan-400/30">
+              <Droplet className="h-4 w-4 text-cyan-300 animate-bounce" /> Pure Water, Pure Living
             </span>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-tight">
-              Premium Water Solutions for <span className="gradient-text">Your Home & Business</span>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+              Premium Water Solutions for <span className="text-cyan-300 drop-shadow-sm">Your Home & Business</span>
             </h1>
-            <p className="text-lg text-slate-600 max-w-xl mx-auto lg:mx-0">
+            <p className="text-lg text-blue-100 max-w-xl mx-auto lg:mx-0">
               Seajal Technologies designs state-of-the-art reverse osmosis systems and automated water softeners. Protect your health and machinery with the best water in Pune.
             </p>
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
               <Link
                 href="/all-products/1"
-                className="gradient-bg hover:opacity-95 text-white font-bold px-8 py-4 rounded-xl shadow-lg shadow-sky-500/20 flex items-center gap-2 transition-all hover:scale-105 active:scale-95"
+                className="bg-cyan-400 hover:bg-cyan-500 text-primary-dark font-extrabold px-8 py-4 rounded-xl shadow-lg shadow-cyan-500/25 flex items-center gap-2 transition-all hover:scale-105 active:scale-95"
               >
                 <span>Browse Products</span>
                 <ArrowRight className="h-5 w-5" />
               </Link>
               <button
                 onClick={() => openEnquiry("Custom Project Consultation")}
-                className="bg-white hover:bg-slate-50 text-slate-700 font-semibold px-8 py-4 rounded-xl border border-slate-200 shadow-sm transition-all hover:scale-105 active:scale-95"
+                className="bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-xl border border-white/30 backdrop-blur-md transition-all hover:scale-105 active:scale-95"
               >
                 Request Consultation
               </button>
@@ -258,7 +269,7 @@ export default function Home() {
           {/* 3D Tilt Hero Poster */}
           <div className="relative flex justify-center z-10">
             <TiltCard className="w-full max-w-lg">
-              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border-4 border-cyan-400/30">
                 <img
                   src="/images/hero_banner.jpg"
                   alt="Seajal Pure Splashing Water"
