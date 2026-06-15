@@ -85,11 +85,6 @@ export default function AllProducts({ products, currentPage, totalPages, totalCo
                     className="h-full w-full object-cover hover:scale-105 transition-transform duration-300"
                     onError={(e) => { e.currentTarget.src = 'https://placehold.co/400x400?text=AquaJ1' }}
                   />
-                  {product.isEcommerce && (
-                    <span className="absolute top-4 right-4 bg-emerald-500 text-white text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded-full shadow-sm">
-                      COD Available
-                    </span>
-                  )}
                 </div>
                 <div className="p-6 space-y-2">
                   <span className="text-xs font-bold text-secondary uppercase tracking-widest">{product.categoryName}</span>
@@ -102,14 +97,7 @@ export default function AllProducts({ products, currentPage, totalPages, totalCo
                 </div>
               </div>
               <div className="p-6 pt-0 border-t border-slate-50 flex items-center justify-between gap-4 mt-auto">
-                {product.isEcommerce && product.price ? (
-                  <div>
-                    <span className="text-slate-400 text-xs line-through">₹{product.originalPrice}</span>
-                    <p className="text-slate-900 font-extrabold text-lg">₹{product.price}</p>
-                  </div>
-                ) : (
-                  <span className="text-slate-500 text-xs font-semibold uppercase tracking-wider">Custom Setup</span>
-                )}
+                <span className="text-slate-500 text-xs font-semibold uppercase tracking-wider">Enquiry Only</span>
                 <Link
                   href={`/products/${product.slug}/${product.id}`}
                   className="bg-primary hover:bg-primary-dark text-white font-semibold text-xs px-4 py-2.5 rounded-xl shadow-md transition-all"

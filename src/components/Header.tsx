@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { Search, ShoppingCart, Menu, X, Phone, Droplet } from 'lucide-react';
-import { useCart } from '../context/CartContext';
+import { Search, Menu, X, Phone, Droplet } from 'lucide-react';
 import { PRODUCTS, BLOGS } from '../data/db';
 
 export const Header: React.FC = () => {
   const router = useRouter();
-  const { cartCount } = useCart();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
@@ -86,18 +84,6 @@ export const Header: React.FC = () => {
               >
                 <Search className="h-5 w-5" />
               </button>
-
-              <Link
-                href="/cart"
-                className="relative rounded-full p-2 text-slate-500 hover:bg-slate-100 hover:text-slate-800 transition-all"
-              >
-                <ShoppingCart className="h-5 w-5" />
-                {cartCount > 0 && (
-                  <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-secondary text-[10px] font-bold text-white shadow-sm animate-pulse">
-                    {cartCount}
-                  </span>
-                )}
-              </Link>
 
               <a
                 href="tel:+918048039988"

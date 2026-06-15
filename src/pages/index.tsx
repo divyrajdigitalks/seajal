@@ -514,14 +514,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="p-6 pt-0 border-t border-slate-50 flex items-center justify-between gap-4 mt-auto">
-                  {product.isEcommerce && product.price ? (
-                    <div>
-                      <span className="text-slate-400 text-xs line-through">₹{product.originalPrice}</span>
-                      <p className="text-slate-900 font-extrabold text-lg">₹{product.price}</p>
-                    </div>
-                  ) : (
-                    <span className="text-slate-500 text-xs font-semibold uppercase tracking-wider">Custom Setup</span>
-                  )}
+                  <span className="text-slate-500 text-xs font-semibold uppercase tracking-wider">Enquiry Only</span>
                   <Link
                     href={`/products/${product.slug}/${product.id}`}
                     className="bg-primary hover:bg-primary-dark text-white font-semibold text-xs px-4 py-2.5 rounded-xl shadow-md transition-all"

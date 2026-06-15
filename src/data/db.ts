@@ -61,10 +61,8 @@ export const PRODUCTS: Product[] = [
     slug: "zico-cop",
     category: "domestic-water-purifier",
     categoryName: "Domestic Water Purifier",
-    price: 15499,
-    originalPrice: 18999,
-    isEcommerce: true,
-    image: "/images/products/zico_cop.jpg",
+    isEcommerce: false,
+    image: "/f1.jpeg",
     description: "Premium copper alkaline water purifier designed for modern kitchens. Delivers mineral-rich, pure drinking water with multi-stage RO+UV+UF+TDS control technology.",
     features: [
       "RO + UV + UF Multi-stage Purification",
@@ -81,7 +79,7 @@ export const PRODUCTS: Product[] = [
       "Filter Lifespan": "6000 Liters"
     },
     inStock: true,
-    hasCOD: true
+    hasCOD: false
   },
   {
     id: 2,
@@ -90,7 +88,7 @@ export const PRODUCTS: Product[] = [
     category: "water-softener",
     categoryName: "Water Softener",
     isEcommerce: false,
-    image: "/images/products/community_softener.jpg",
+    image: "/f2.jpeg",
     description: "Industrial-grade community water softener system for large residential complexes, apartments, and commercial facilities. Resolves scaling and hard water concerns completely.",
     features: [
       "High-grade food-safe ion exchange resin",
@@ -114,10 +112,8 @@ export const PRODUCTS: Product[] = [
     slug: "25-lph-ro-water-purifier-plant",
     category: "commercial-ro-water-purifier",
     categoryName: "Commercial RO Water Purifier",
-    price: 24500,
-    originalPrice: 29999,
-    isEcommerce: true,
-    image: "/images/products/commercial_ro.jpg",
+    isEcommerce: false,
+    image: "/f3.jpeg",
     description: "Robust 25 LPH RO Water Purifier for offices, small clinics, schools, and commercial settings. Built with double membrane technology for superior yield and reliability.",
     features: [
       "Dual high-yield RO membranes",
@@ -133,7 +129,7 @@ export const PRODUCTS: Product[] = [
       "Weight": "18 Kg"
     },
     inStock: true,
-    hasCOD: true
+    hasCOD: false
   },
   {
     id: 4,
@@ -142,7 +138,7 @@ export const PRODUCTS: Product[] = [
     category: "water-softener",
     categoryName: "Water Softener",
     isEcommerce: false,
-    image: "/images/products/sand_filter_softener.jpg",
+    image: "/f4.jpeg",
     description: "Complete water pretreatment setup featuring a combined multi-port sand filter and soft resin vessel. Ideal for independent villas and small commercial businesses utilizing borewell water.",
     features: [
       "Combined sand filter & softening media",
@@ -164,10 +160,8 @@ export const PRODUCTS: Product[] = [
     slug: "aqua-j1-alkaline-active-plus",
     category: "domestic-water-purifier",
     categoryName: "Domestic Water Purifier",
-    price: 12499,
-    originalPrice: 15999,
-    isEcommerce: true,
-    image: "/images/products/alkaline_active.jpg",
+    isEcommerce: false,
+    image: "/f5.jpeg",
     description: "Advanced domestic water purifier with customized pH balancing filter to produce alkaline antioxidant water for peak cellular hydration.",
     features: [
       "Bio-Alkaline mineral enhancer cartridge",
@@ -181,7 +175,237 @@ export const PRODUCTS: Product[] = [
       "TDS reduction": "Up to 90%"
     },
     inStock: true,
-    hasCOD: true
+    hasCOD: false
+  },
+  {
+    id: 6,
+    name: "Seajal Premium RO Cabinet System",
+    slug: "seajal-premium-ro-cabinet",
+    category: "domestic-water-purifier",
+    categoryName: "Domestic Water Purifier",
+    isEcommerce: false,
+    image: "/f6.jpeg",
+    description: "Modern modular RO Cabinet Water Purifier designed with active mineralizer and custom styling to seamlessly blend with standard kitchen decor.",
+    features: [
+      "Compact kitchen cabinet integration",
+      "High efficiency filter cartridges",
+      "Auto shutoff and indicator system",
+      "Mineralizer enrichment stage"
+    ],
+    specification: {
+      "Purification Stage": "7 Stages",
+      "Tank Volume": "7 Liters",
+      "Auto Flush": "Yes"
+    },
+    inStock: true,
+    hasCOD: false
+  },
+  {
+    id: 7,
+    name: "Seajal Industrial 100 LPH RO System",
+    slug: "seajal-industrial-100-lph-ro",
+    category: "commercial-ro-water-purifier",
+    categoryName: "Commercial RO Water Purifier",
+    isEcommerce: false,
+    image: "/f7.jpeg",
+    description: "Heavy duty 100 LPH Commercial RO plant featuring stainless steel frame, pressure gauges, and high rejection membranes for medium businesses.",
+    features: [
+      "100 LPH output yield",
+      "High quality raw water pump",
+      "Automatic high and low pressure cutoffs",
+      "Dual flow meters for reject/product monitoring"
+    ],
+    specification: {
+      "Flow Rate": "100 Liters/hour",
+      "Structure Frame": "Stainless Steel (SS)",
+      "Power consumption": "1.5 kW"
+    },
+    inStock: true,
+    hasCOD: false
+  },
+  {
+    id: 8,
+    name: "Seajal Multi-port Media Softener",
+    slug: "seajal-multiport-media-softener",
+    category: "water-softener",
+    categoryName: "Water Softener",
+    isEcommerce: false,
+    image: "/f8.jpeg",
+    description: "Manual multi-port valve softener setup containing high capacity ion exchange media. Provides soft water output for washing machines and bathing.",
+    features: [
+      "Sturdy FRP vessel construction",
+      "Multi-port bypass design for backwash ease",
+      "Quick installation profile",
+      "Substantial scale prevention benefit"
+    ],
+    specification: {
+      "Inlet Hardness": "Up to 500 ppm",
+      "Flow Output": "1500 Liters/hour",
+      "Vessel Volume": "45 Liters"
+    },
+    inStock: true,
+    hasCOD: false
+  },
+  {
+    id: 9,
+    name: "Seajal Smart RO+UV Alkaline Purifier",
+    slug: "seajal-smart-ro-uv-alkaline",
+    category: "domestic-water-purifier",
+    categoryName: "Domestic Water Purifier",
+    isEcommerce: false,
+    image: "/f9.jpeg",
+    description: "Advanced smart kitchen water purifier utilizing digital TDS display monitoring and micro-filtration technologies for absolute drinking safety.",
+    features: [
+      "Digital real-time TDS dashboard",
+      "RO + UV + Alkaline + Micro Filtration",
+      "Compact wall mounted layout",
+      "Leakage protection sensor"
+    ],
+    specification: {
+      "TDS Range": "100 - 2000 ppm input",
+      "Purification rate": "12 LPH",
+      "Storage": "9 Liters"
+    },
+    inStock: true,
+    hasCOD: false
+  },
+  {
+    id: 10,
+    name: "Seajal Commercial 50 LPH RO Plant",
+    slug: "seajal-commercial-50-lph-ro",
+    category: "commercial-ro-water-purifier",
+    categoryName: "Commercial RO Water Purifier",
+    isEcommerce: false,
+    image: "/f10.jpeg",
+    description: "High capacity 50 Liters Per Hour RO purification plant optimized for offices, large schools, and hostels. Includes triple membrane filtration.",
+    features: [
+      "Triple high performance membrane setup",
+      "Pre-filter sediment housing",
+      "Robust pressure booster pumps",
+      "Anti-scalant liquid dispenser option"
+    ],
+    specification: {
+      "Yield": "50 LPH",
+      "Reject Water Ratio": "approx. 1:1.5",
+      "Mounting type": "Wall / Stand mount"
+    },
+    inStock: true,
+    hasCOD: false
+  },
+  {
+    id: 11,
+    name: "Seajal Whole House Water Softener",
+    slug: "seajal-whole-house-softener",
+    category: "water-softener",
+    categoryName: "Water Softener",
+    isEcommerce: false,
+    image: "/f11.jpeg",
+    description: "A centralized softener system protecting all overhead tanks and water lines in independent houses and bungalows. Prevents plumbing scales.",
+    features: [
+      "Bungalow-scale flow configuration",
+      "High quality resin with 5+ year lifespan",
+      "Simple brine tank salt refilling",
+      "Guards pipelines, solar heaters, & appliances"
+    ],
+    specification: {
+      "Treated Flow": "2000 Liters/hour",
+      "Resin Volume": "60 Liters",
+      "Valve Operation": "Semi-Automatic"
+    },
+    inStock: true,
+    hasCOD: false
+  },
+  {
+    id: 12,
+    name: "Seajal Copper Alkaline Mineralizer",
+    slug: "seajal-copper-alkaline-mineralizer",
+    category: "domestic-water-purifier",
+    categoryName: "Domestic Water Purifier",
+    isEcommerce: false,
+    image: "/f12.jpeg",
+    description: "Premium counter top or wall mounted copper purifier adding essential trace elements of Copper (Cu) and Zinc (Zn) to balanced alkaline water.",
+    features: [
+      "Cu+Zn mineral enrichment cartridge",
+      "Auto-shutoff micro switch mechanism",
+      "Food-grade ABS plastic styling",
+      "High flow tap delivery"
+    ],
+    specification: {
+      "PH level": "7.5 - 9.0",
+      "Tank Capacity": "10 Liters",
+      "Power source": "24V DC"
+    },
+    inStock: true,
+    hasCOD: false
+  },
+  {
+    id: 13,
+    name: "Seajal Automatic Resin Regeneration Softener",
+    slug: "seajal-auto-resin-regeneration-softener",
+    category: "water-softener",
+    categoryName: "Water Softener",
+    isEcommerce: false,
+    image: "/f13.jpeg",
+    description: "Centralized water softener with electronic control head configured to trigger self-cleaning resin regeneration cycle automatically based on volume flow.",
+    features: [
+      "Microprocessor digital control valve",
+      "Time/Volume based auto regeneration",
+      "Consistent soft water yield without manual intervention",
+      "Optimized salt usage settings"
+    ],
+    specification: {
+      "Flow Capacity": "2500 Liters/hour",
+      "Regeneration Mode": "Meter Immediate / Delayed",
+      "Pipe size compatibility": "1 inch"
+    },
+    inStock: true,
+    hasCOD: false
+  },
+  {
+    id: 14,
+    name: "Seajal Heavy Duty Dual RO Purifier",
+    slug: "seajal-heavy-duty-dual-ro",
+    category: "commercial-ro-water-purifier",
+    categoryName: "Commercial RO Water Purifier",
+    isEcommerce: false,
+    image: "/f14.jpeg",
+    description: "Specially designed commercial dual RO plant utilizing two independent high pressure pumps for medical clinics and small laboratories requiring pure distilled water.",
+    features: [
+      "Dual standby project layout",
+      "Absolute pure water output grade",
+      "Pre and post sediment/carbon blocks",
+      "Analog pressure gauges integrated"
+    ],
+    specification: {
+      "Output rate": "35 LPH",
+      "Operating voltage": "230V AC",
+      "Structure Material": "SS 304 Stand"
+    },
+    inStock: true,
+    hasCOD: false
+  },
+  {
+    id: 15,
+    name: "Seajal Hot & Cold Alkaline Purifier",
+    slug: "seajal-hot-cold-alkaline-purifier",
+    category: "domestic-water-purifier",
+    categoryName: "Domestic Water Purifier",
+    isEcommerce: false,
+    image: "/f15.jpeg",
+    description: "Premium convenience hot and cold water dispenser with integrated multi-stage RO, active copper, and alkaline filtration system.",
+    features: [
+      "Instant Hot, Cold, and Ambient water taps",
+      "Full RO + UV sterilization loop",
+      "Child safety lock for hot water dispenser",
+      "Active mineralizer cartridge"
+    ],
+    specification: {
+      "Hot Water Temp": "85°C - 90°C",
+      "Cold Water Temp": "10°C - 15°C",
+      "Storage Tank": "8 Liters (total)"
+    },
+    inStock: true,
+    hasCOD: false
   }
 ];
 
