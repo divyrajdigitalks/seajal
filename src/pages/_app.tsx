@@ -10,8 +10,8 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <CartProvider>
       <Head>
-        <title>Seajal Technologies | Best Water Purifier & Softeners in Pune</title>
-        <meta name="description" content="Seajal Technologies is the leading RO plant manufacturer, water softener supplier and domestic smart water purifier showroom in Pune. Custom industrial & household systems." />
+        <title>Seajal | Best Water Purifier & Softeners in Pune</title>
+        <meta name="description" content="Seajal is the leading RO plant manufacturer, water softener supplier and domestic smart water purifier showroom in Pune. Custom industrial & household systems." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

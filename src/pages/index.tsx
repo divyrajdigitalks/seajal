@@ -185,13 +185,13 @@ export default function Home() {
   ];
 
   const stages = [
-    { num: "01", name: "Spun Dust Filter", desc: "Filters physical silt, sand, mud, and rust particles. Acts as the first line of defense to protect sensitive membranes downstream.", icon: Shield },
-    { num: "02", name: "Pre-Carbon Block", desc: "Extracts volatile organic compounds, bad odor, chlorine, and herbicides. Restores natural clean water sweetness.", icon: Settings },
-    { num: "03", name: "RO Membrane", desc: "Tackles dissolved salts, heavy metals, arsenic, fluorides, and chemical TDS. Lowers TDS down to safe consumption levels.", icon: Droplet },
-    { num: "04", name: "UV Disinfection", desc: "Renders active virus strains, harmful bacteria, and pathogens harmless by disrupting their cellular DNA.", icon: Shield },
-    { num: "05", name: "Active Copper", desc: "Enriches the drinking water with antibacterial copper ions. Mimics traditional copper storage vessel health benefits.", icon: Award },
-    { num: "06", name: "Bio-Alkaline", desc: "Regulates natural pH values back to a healthy 8.5+ range, providing essential hydration antioxidants.", icon: Droplet },
-    { num: "07", name: "Ultra Filtration (UF)", desc: "A final capillary membrane polishing stage ensuring absolute crystal clarity and trapping suspended particles.", icon: CheckCircle }
+    { num: "01", name: "Pre Spun Filter", desc: "Filters physical silt, sand, mud, and rust particles. Acts as the first line of defense to protect sensitive membranes downstream.", icon: Shield },
+    { num: "02", name: "Sediment Filter", desc: "Filters fine sediment particles, protecting secondary filtration systems from clogging.", icon: Settings },
+    { num: "03", name: "Pre Carbon Filter", desc: "Extracts volatile organic compounds, bad odor, chlorine, and herbicides. Restores natural clean water sweetness.", icon: Settings },
+    { num: "04", name: "RO Membrane", desc: "Tackles dissolved salts, heavy metals, arsenic, fluorides, and chemical TDS. Lowers TDS down to safe consumption levels.", icon: Droplet },
+    { num: "05", name: "UV", desc: "Renders active virus strains, harmful bacteria, and pathogens harmless by disrupting their cellular DNA.", icon: Shield },
+    { num: "06", name: "Copper / Alkaline Filter", desc: "Enriches the drinking water with active copper and zinc ions, and balances pH values to healthy alkaline range.", icon: Award },
+    { num: "07", name: "UF Filtration", desc: "A final capillary membrane polishing stage ensuring absolute crystal clarity and trapping suspended particles.", icon: CheckCircle }
   ];
 
   return (
@@ -224,7 +224,7 @@ export default function Home() {
               Premium Water Purification <span className="text-cyan-300 drop-shadow-sm">Plants & Softeners</span>
             </h1>
             <p className="text-lg text-blue-100 max-w-xl mx-auto lg:mx-0">
-              Seajal Technologies designs state-of-the-art reverse osmosis systems and automated water softeners. Protect your health and machinery with the best water in Pune.
+              Designs state-of-the-art reverse osmosis systems and automated water softeners. Protect your health and machinery with the best water in India.
             </p>
 
             {/* Live Filtration Loop Visualization inside Hero */}
@@ -323,7 +323,7 @@ export default function Home() {
                     onClick={() => openEnquiry(svc.title)}
                     className="mt-6 text-sm font-bold text-primary flex items-center gap-1.5 hover:underline"
                   >
-                    <span>Learn more</span>
+                    <span>Get Quote</span>
                     <ArrowRight className="h-4 w-4" />
                   </button>
                 </div>
@@ -337,7 +337,7 @@ export default function Home() {
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
         <ScrollReveal>
           <div className="text-center max-w-3xl mx-auto space-y-4 mb-20">
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">7-Stage Seajal Process</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">7-Stage Seajal purifier Process</h2>
             <p className="text-slate-600">
               Click on each filtration layer to explore the scientific diagnostics inside our smart purifiers.
             </p>
@@ -437,7 +437,7 @@ export default function Home() {
             <span className="text-xs font-extrabold uppercase tracking-widest text-primary bg-sky-50 border border-sky-100 px-3 py-1.5 rounded-full">
               Seajal Safeguards
             </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">Why Pune Prefers Seajal</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">Why Prefers Seajal</h2>
             <p className="text-slate-600">
               High-end build components designed by design engineers for domestic and industrial water treatment.
             </p>
@@ -514,7 +514,16 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="p-6 pt-0 border-t border-slate-50 flex items-center justify-between gap-4 mt-auto">
-                  <span className="text-slate-500 text-xs font-semibold uppercase tracking-wider">Enquiry Only</span>
+                  {product.price ? (
+                    <div className="flex flex-col">
+                      <span className="text-slate-950 font-bold text-sm">₹{product.price.toLocaleString('en-IN')}</span>
+                      {product.originalPrice && (
+                        <span className="text-slate-400 text-xs line-through">₹{product.originalPrice.toLocaleString('en-IN')}</span>
+                      )}
+                    </div>
+                  ) : (
+                    <span className="text-slate-500 text-xs font-semibold uppercase tracking-wider">Get Quote</span>
+                  )}
                   <Link
                     href={`/products/${product.slug}/${product.id}`}
                     className="bg-primary hover:bg-primary-dark text-white font-semibold text-xs px-4 py-2.5 rounded-xl shadow-md transition-all"

@@ -15,10 +15,10 @@ export default function AboutUs() {
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div className="space-y-6">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
-            About <span className="gradient-text">Seajal Technologies</span>
+            About <span className="gradient-text">Seajal</span>
           </h1>
           <p className="text-slate-600 leading-relaxed text-lg">
-            Seajal Technologies has spent over a decade leading the water purification market in Maharashtra. Originally founded in Pimple Saudagar, Pune, our dedication is to bring high-quality, pure water solutions directly to families and industries.
+            Seajal has spent over a decade leading the water purification market in India. Originally founded in PCMC, Pune, our dedication is to bring high-quality, pure water solutions directly to families and industries.
           </p>
           <p className="text-slate-600 leading-relaxed">
             Our systems utilize advanced reverse osmosis, ultra-filtration, and ion-exchange softening resin to balance TDS, hardness, and minerals. From individual kitchens to housing complex communities and MIDC industries, we construct, supply, and support custom systems.
@@ -92,15 +92,15 @@ export default function AboutUs() {
               ))}
             </div>
             <p className="text-slate-600 italic text-sm leading-relaxed">
-              "We installed the Seajal Community Softener in our housing society in Wakad. The hardness levels dropped from 750 ppm to 120 ppm, resolving scale issues completely. Their technicians are highly professional!"
+              "We installed the Seajal Community Softener in our housing society in thergaon. The hardness levels dropped from 600 ppm to 40 ppm, resolving scale issues completely. Their technicians are highly professional!"
             </p>
             <div className="flex items-center gap-3">
               <div className="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center font-bold text-primary text-sm">
-                R
+                H
               </div>
               <div>
-                <h4 className="text-sm font-bold text-slate-800">Rahul Sharma</h4>
-                <p className="text-[10px] text-slate-400">Secretary, Orchid Woods Society</p>
+                <h4 className="text-sm font-bold text-slate-800">Hrishikesh mankar</h4>
+                <p className="text-[10px] text-slate-400">Secretary, ganga asiayana Society</p>
               </div>
             </div>
           </div>

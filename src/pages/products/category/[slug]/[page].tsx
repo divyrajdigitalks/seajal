@@ -98,7 +98,16 @@ export default function CategoryProducts({ products, categoryName, categorySlug,
                 </div>
               </div>
               <div className="p-6 pt-0 border-t border-slate-50 flex items-center justify-between gap-4 mt-auto">
-                <span className="text-slate-500 text-xs font-semibold uppercase tracking-wider">Enquiry Only</span>
+                {product.price ? (
+                  <div className="flex flex-col">
+                    <span className="text-slate-950 font-bold text-sm">₹{product.price.toLocaleString('en-IN')}</span>
+                    {product.originalPrice && (
+                      <span className="text-slate-400 text-xs line-through">₹{product.originalPrice.toLocaleString('en-IN')}</span>
+                    )}
+                  </div>
+                ) : (
+                  <span className="text-slate-500 text-xs font-semibold uppercase tracking-wider">Get Quote</span>
+                )}
                 <Link
                   href={`/products/${product.slug}/${product.id}`}
                   className="bg-primary hover:bg-primary-dark text-white font-semibold text-xs px-4 py-2.5 rounded-xl shadow-md transition-all"

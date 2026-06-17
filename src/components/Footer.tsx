@@ -163,7 +163,7 @@ export const Footer: React.FC = () => {
       {/* Bottom copy */}
       <div className="bg-slate-950 py-6 text-center text-xs text-slate-500 border-t border-slate-900">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p>© {new Date().getFullYear()} Seajal Technologies. All rights reserved. Designed with Next.js & Tailwind.</p>
+          <p>© {new Date().getFullYear()} Seajal. All rights reserved. Designed with Next.js & Tailwind.</p>
         </div>
       </div>
     </footer>

@@ -45,6 +45,19 @@ export default function ProductDetail({ product, relatedProducts }: ProductDetai
               {product.categoryName}
             </span>
             <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2">{product.name}</h1>
+            {product.price && (
+              <div className="flex items-baseline gap-3 mt-4">
+                <span className="text-3xl font-extrabold text-slate-900">₹{product.price.toLocaleString('en-IN')}</span>
+                {product.originalPrice && (
+                  <>
+                    <span className="text-lg text-slate-500 line-through">₹{product.originalPrice.toLocaleString('en-IN')}</span>
+                    <span className="text-sm font-bold text-emerald-600 bg-emerald-50 px-2.5 py-0.5 rounded-lg">
+                      {Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}% OFF
+                    </span>
+                  </>
+                )}
+              </div>
+            )}
           </div>
 
           <div className="bg-blue-50/50 p-4 rounded-2xl border border-blue-100/50 flex items-start gap-3">
@@ -71,7 +84,7 @@ export default function ProductDetail({ product, relatedProducts }: ProductDetai
                 className="w-full gradient-bg hover:opacity-95 text-white font-semibold py-3 px-6 rounded-xl flex items-center justify-center gap-2 shadow-lg transition-all active:scale-95"
               >
                 <MessageSquare className="h-5 w-5" />
-                <span>Send Enquiry</span>
+                <span>Get Quote</span>
               </button>
               <a
                 href={`https://wa.me/918048039988?text=Hi%20Aqua%20J1,%20I%20am%20interested%20in%20inquiring%20about%20${encodeURIComponent(product.name)}.`}
@@ -82,7 +95,7 @@ export default function ProductDetail({ product, relatedProducts }: ProductDetai
                 <svg className="h-5 w-5 fill-current" viewBox="0 0 24 24">
                   <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.864-9.864.002-2.637-1.03-5.116-2.905-6.993C16.255 1.87 13.78 1.843 11.47 1.843c-5.437 0-9.861 4.421-9.865 9.864 0 1.63.499 3.224 1.453 4.825L1.96 20.89l4.687-1.736zm10.413-6.205c-.308-.154-1.82-.9-2.1-.1-.281.1-.56.415-.688.563-.127.147-.255.166-.563.011-.307-.154-1.3-.478-2.477-1.53-.914-.816-1.53-1.824-1.71-2.131-.18-.308-.02-.475.134-.628.14-.137.308-.36.462-.54.153-.18.205-.308.308-.513.102-.206.051-.385-.026-.54-.077-.154-.688-1.657-.943-2.27-.248-.598-.5-.517-.688-.527-.178-.008-.383-.01-.587-.01-.205 0-.537.077-.819.385-.282.308-1.077 1.05-1.077 2.562 0 1.514 1.102 2.977 1.254 3.182.154.205 2.169 3.313 5.256 4.646.734.317 1.307.506 1.753.648.737.234 1.408.201 1.94.122.592-.087 1.82-.743 2.076-1.46.256-.718.256-1.334.18-1.46-.077-.128-.282-.205-.59-.359z" />
                 </svg>
-                <span>WhatsApp Inquiry</span>
+                <span>WhatsApp Quote</span>
               </a>
             </div>
           </div>
@@ -146,10 +159,15 @@ export default function ProductDetail({ product, relatedProducts }: ProductDetai
                   </div>
                 </div>
                 <div className="p-5 pt-0 border-t border-slate-50 flex items-center justify-between gap-4">
-                  {p.isEcommerce && p.price ? (
-                    <span className="text-slate-950 font-bold text-sm">₹{p.price}</span>
+                  {p.price ? (
+                    <div className="flex flex-col">
+                      <span className="text-slate-950 font-bold text-sm">₹{p.price.toLocaleString('en-IN')}</span>
+                      {p.originalPrice && (
+                        <span className="text-slate-400 text-[10px] line-through">₹{p.originalPrice.toLocaleString('en-IN')}</span>
+                      )}
+                    </div>
                   ) : (
-                    <span className="text-slate-400 text-xs font-semibold uppercase">Enquiry Only</span>
+                    <span className="text-slate-400 text-xs font-semibold uppercase">Get Quote</span>
                   )}
                   <Link href={`/products/${p.slug}/${p.id}`} className="bg-slate-100 hover:bg-slate-200 text-slate-800 text-[10px] font-bold px-3 py-2 rounded-lg transition-all">
                     View Specs

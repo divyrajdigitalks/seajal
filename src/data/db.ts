@@ -406,18 +406,47 @@ export const PRODUCTS: Product[] = [
     },
     inStock: true,
     hasCOD: false
+  },
+  {
+    id: 16,
+    name: "Seajal Trio Purifier",
+    slug: "seajal-trio",
+    category: "domestic-water-purifier",
+    categoryName: "Domestic Water Purifier",
+    isEcommerce: false,
+    price: 16500,
+    originalPrice: 21850,
+    image: "/f16.png",
+    description: "Premium Zinc copper alkaline water purifier designed for modern kitchens. Delivers mineral-rich, pure drinking water with multi-stage RO+TDS+ZN+CU+ALKLINE technology.",
+    features: [
+      "RO + TDS + ZN + CU + ALKALINE Multi-stage Filtration",
+      "Active Copper & Zinc enrichment",
+      "Bio-Alkaline technology for pH balance",
+      "Premium aesthetic design for modern kitchens",
+      "TDS Controller for customized taste profile"
+    ],
+    specification: {
+      "Technology": "RO + TDS + ZN + CU + ALKALINE",
+      "Purification Capacity": "15 Liters per hour",
+      "Storage Tank Capacity": "10 Liters",
+      "Installation Type": "Wall Mounted / Counter Top",
+      "TDS Reduction": "Up to 90%",
+      "Filter Lifespan": "6000 Liters"
+    },
+    inStock: true,
+    hasCOD: false
   }
 ];
 
 export const BLOGS: Blog[] = [
   {
     id: 1,
-    title: "Best RO Plant Supplier in Pune - Seajal Technologies",
+    title: "Best RO Plant Supplier in Pune - Seajal",
     slug: "ro-plant-supplier-in-pune-aqua-j1-technologies",
-    summary: "Finding a reliable RO Plant supplier in Pune can be challenging. Learn why Seajal Technologies stands out as Pune's premier manufacturer and supplier of water purification projects.",
+    summary: "Finding a reliable RO Plant supplier in Pune can be challenging. Learn why Seajal stands out as Pune's premier manufacturer and supplier of water purification projects.",
     content: `<p>Water purity is a crucial factor for industrial, commercial, and residential spaces in Pune. Due to rising hard water and TDS levels, standard municipal setups often fall short of delivering pure water. This is where high-quality Reverse Osmosis (RO) plants become essential.</p>
-    <h3>Why Choose Seajal Technologies?</h3>
-    <p>Seajal Technologies has established itself as the leading RO plant designer and supplier in Pune. Our systems are custom built to handle different water sources including borewell, river, and tanker water.</p>
+    <h3>Why Choose Seajal?</h3>
+    <p>Seajal has established itself as the leading RO plant designer and supplier in Pune. Our systems are custom built to handle different water sources including borewell, river, and tanker water.</p>
     <ul>
       <li>High-grade industrial components and pumps.</li>
       <li>Custom capacities ranging from 25 LPH up to 10,000 LPH setups.</li>
