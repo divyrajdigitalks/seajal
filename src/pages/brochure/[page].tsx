@@ -31,7 +31,7 @@ export default function BrochuresPage({ brochures }: BrochureProps) {
             key={brochure.id}
             className="bg-white p-6 rounded-3xl border border-slate-100 shadow-md flex items-center gap-6 hover:shadow-lg transition-all"
           >
-            <div className="h-20 w-16 bg-blue-50 rounded-xl overflow-hidden flex-shrink-0 flex items-center justify-center text-primary border border-blue-100">
+            <div className="h-20 w-16 bg-teal-50 rounded-xl overflow-hidden flex-shrink-0 flex items-center justify-center text-primary border border-teal-100">
               <FileText className="h-10 w-10 text-secondary" />
             </div>
             <div className="flex-1 min-w-0 space-y-2">

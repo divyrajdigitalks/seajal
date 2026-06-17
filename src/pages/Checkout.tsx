@@ -188,7 +188,7 @@ export default function CheckoutPage() {
               Payment Method
             </label>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <label className="flex items-center gap-3 border border-primary bg-blue-50/30 p-4 rounded-xl cursor-pointer">
+              <label className="flex items-center gap-3 border border-primary bg-teal-50/30 p-4 rounded-xl cursor-pointer">
                 <input
                   type="radio"
                   name="payment"

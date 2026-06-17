@@ -61,7 +61,7 @@ const ScrollReveal: React.FC<{ children: React.ReactNode }> = ({ children }) => 
 const FAQItem: React.FC<{ question: string; answer: string }> = ({ question, answer }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="border-b border-blue-50/60 pb-4">
+    <div className="border-b border-teal-50/60 pb-4">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full flex justify-between items-center text-left py-4 font-semibold text-slate-800 hover:text-primary transition-colors focus:outline-none"
@@ -196,103 +196,185 @@ export default function Home() {
 
   return (
     <div className="relative bg-[#f8fafc] space-y-6 pb-8">
-      {/* Light Ocean Hero Banner with photorealistic Sea Water Backdrop */}
-      <section className="relative overflow-hidden bg-slate-900 text-white pt-24 pb-32">
-        {/* Full-bleed Sea background layer */}
-        <div className="absolute inset-0 z-0 opacity-70">
-          <img
-            src="/images/ocean_bg.jpg"
-            alt="Deep Sea Water Background"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-blue-950/30 via-slate-900/40 to-[#f8fafc]" />
-        </div>
-
+      {/* Interactive Bright Hero Section */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-white via-teal-50/50 to-white pt-24 pb-32 border-b border-teal-100/50">
         <BubbleParticles />
-        
+
+        {/* Floating gradient orbs for background depth */}
+        <motion.div
+          animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-20 right-20 w-96 h-96 bg-teal-400/20 rounded-full blur-3xl pointer-events-none"
+        />
+        <motion.div
+          animate={{ scale: [1, 1.5, 1], opacity: [0.2, 0.4, 0.2] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          className="absolute -bottom-20 -left-20 w-[30rem] h-[30rem] bg-emerald-400/10 rounded-full blur-3xl pointer-events-none"
+        />
+
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="space-y-6 text-center lg:text-left"
           >
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-cyan-400/20 px-4 py-1.5 text-sm font-semibold text-cyan-200 backdrop-blur-md border border-cyan-400/30">
-              <Droplet className="h-4 w-4 text-cyan-300 animate-bounce" /> Pure Water, Pure Living
-            </span>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
-              Premium Water Purification <span className="text-cyan-300 drop-shadow-sm">Plants & Softeners</span>
-            </h1>
-            <p className="text-lg text-blue-100 max-w-xl mx-auto lg:mx-0">
-              Seajal designs state-of-the-art reverse osmosis systems and automated water softeners. Protect your health and machinery with the best water in Pune(India).
-            </p>
+            <motion.span
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="inline-flex items-center gap-1.5 rounded-full bg-teal-100/80 px-4 py-1.5 text-sm font-bold text-teal-800 border border-teal-200"
+            >
+              <Droplet className="h-4 w-4 text-teal-600 animate-bounce" /> Pure Water, Pure Living
+            </motion.span>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-tight"
+            >
+              Premium Water Purification <br className="hidden lg:block" />
+              <span className="gradient-text drop-shadow-sm">Plants & Softeners</span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="text-lg text-slate-600 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium"
+            >
+              Seajal designs state-of-the-art reverse osmosis systems and automated water softeners. Protect your health and machinery with the best water in Pune.
+            </motion.p>
 
             {/* Live Filtration Loop Visualization inside Hero */}
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 p-5 rounded-3xl mt-6 space-y-3 max-w-md mx-auto lg:mx-0">
-              <h4 className="text-[10px] uppercase tracking-widest font-extrabold text-cyan-300 flex items-center gap-1">
-                <Droplet className="h-3 w-3 animate-ping" /> Live Purification Path
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.5 }}
+              className="bg-white/80 backdrop-blur-xl border border-teal-100 p-6 rounded-3xl mt-8 shadow-xl shadow-teal-900/5 max-w-md mx-auto lg:mx-0 relative overflow-hidden group"
+            >
+              {/* Shimmer effect */}
+              <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/50 to-transparent group-hover:animate-shimmer" />
+
+              <h4 className="text-[10px] uppercase tracking-widest font-extrabold text-slate-400 flex items-center gap-2 mb-4">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
+                </span>
+                Live Purification Path
               </h4>
-              <div className="flex justify-between items-center gap-2 text-white">
-                <div className="flex flex-col items-center">
-                  <div className="h-8 w-8 rounded-full bg-blue-500/30 border border-blue-500/40 flex items-center justify-center text-xs">💧</div>
-                  <span className="text-[8px] uppercase font-bold text-slate-300 mt-1">Borewell</span>
+
+              <div className="flex justify-between items-center gap-2 relative">
+                {/* Animated Flowing Line Behind */}
+                <div className="absolute top-1/2 left-4 right-4 h-1.5 bg-slate-100 -translate-y-1/2 z-0 rounded-full overflow-hidden">
+                  <motion.div
+                    animate={{ x: ["-100%", "300%"] }}
+                    transition={{ duration: 2.5, repeat: Infinity, ease: "linear" }}
+                    className="h-full w-1/3 bg-gradient-to-r from-transparent via-teal-400 to-transparent"
+                  />
                 </div>
-                <div className="flex-1 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-400" />
-                <div className="flex flex-col items-center">
-                  <div className="h-8 w-8 rounded-full bg-cyan-500/30 border border-cyan-500/40 flex items-center justify-center text-xs">⚡</div>
-                  <span className="text-[8px] uppercase font-bold text-slate-300 mt-1">RO + UV</span>
+
+                <div className="flex flex-col items-center z-10">
+                  <motion.div whileHover={{ scale: 1.1 }} className="h-10 w-10 rounded-full bg-white shadow-md border border-slate-100 flex items-center justify-center text-sm z-10 relative">
+                    💧
+                  </motion.div>
+                  <span className="text-[9px] uppercase font-bold text-slate-500 mt-2 bg-white/80 px-1 rounded">Borewell</span>
                 </div>
-                <div className="flex-1 h-0.5 bg-gradient-to-r from-cyan-400 to-emerald-400" />
-                <div className="flex flex-col items-center">
-                  <div className="h-8 w-8 rounded-full bg-emerald-500/30 border border-emerald-500/40 flex items-center justify-center text-xs">✨</div>
-                  <span className="text-[8px] uppercase font-bold text-slate-300 mt-1">Mineral</span>
+
+                <div className="flex flex-col items-center z-10">
+                  <motion.div whileHover={{ scale: 1.1 }} className="h-10 w-10 rounded-full bg-teal-50 shadow-md border border-teal-200 flex items-center justify-center text-sm z-10 relative">
+                    ⚡
+                  </motion.div>
+                  <span className="text-[9px] uppercase font-bold text-teal-700 mt-2 bg-white/80 px-1 rounded">RO + UV</span>
+                </div>
+
+                <div className="flex flex-col items-center z-10">
+                  <motion.div whileHover={{ scale: 1.1 }} className="h-10 w-10 rounded-full bg-emerald-50 shadow-md border border-emerald-200 flex items-center justify-center text-sm z-10 relative">
+                    ✨
+                  </motion.div>
+                  <span className="text-[9px] uppercase font-bold text-emerald-700 mt-2 bg-white/80 px-1 rounded">Mineral</span>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+              className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-6"
+            >
               <Link
                 href="/all-products/1"
-                className="bg-cyan-400 hover:bg-cyan-500 text-primary-dark font-extrabold px-8 py-4 rounded-xl shadow-lg shadow-cyan-500/25 flex items-center gap-2 transition-all hover:scale-105 active:scale-95"
+                className="gradient-bg text-white font-extrabold px-8 py-4 rounded-xl shadow-lg shadow-teal-500/30 flex items-center gap-2 transition-all hover:scale-105 active:scale-95 hover:shadow-xl"
               >
                 <span>Browse Products</span>
                 <ArrowRight className="h-5 w-5" />
               </Link>
               <button
                 onClick={() => openEnquiry("Custom Project Consultation")}
-                className="bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-xl border border-white/30 backdrop-blur-md transition-all hover:scale-105 active:scale-95"
+                className="bg-white hover:bg-slate-50 text-slate-800 font-bold px-8 py-4 rounded-xl border border-slate-200 shadow-sm transition-all hover:scale-105 active:scale-95"
               >
                 Request Consultation
               </button>
-            </div>
+            </motion.div>
           </motion.div>
 
-          {/* 3D Tilt Hero Poster */}
-          <div className="relative flex justify-center z-10">
+          {/* Premium Photo Hero Poster */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9, rotateY: 15 }}
+            animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="relative flex justify-center z-10 perspective-1000 mt-10 lg:mt-0"
+          >
             <TiltCard className="w-full max-w-lg">
-              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border-4 border-cyan-400/30">
-                <img
-                  src="/images/hero_banner.jpg"
-                  alt="Seajal Pure Splashing Water"
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    e.currentTarget.src =
-                      'https://images.unsplash.com/photo-1585829365295-ab7cd400c167?auto=format&fit=crop&q=80&w=600';
-                  }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent" />
-                <div className="absolute bottom-6 left-6 right-6 glass p-4 rounded-2xl flex items-center justify-between text-slate-800">
-                  <div>
-                    <h4 className="font-bold text-slate-900">Crystal Clear Flow</h4>
-                    <p className="text-xs text-slate-600">Zero Impurities guaranteed</p>
-                  </div>
-                  <span className="bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-lg">Pure Standard</span>
+              <div className="relative aspect-[4/3] sm:aspect-square lg:aspect-[4/5] rounded-[2.5rem] overflow-visible">
+                <div className="absolute inset-0 rounded-[2.5rem] overflow-hidden bg-white shadow-2xl shadow-teal-900/15 border-8 border-white/80 flex items-center justify-center">
+                  <motion.img
+                    animate={{ scale: [1, 1.05, 1] }}
+                    transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+                    src="/f9.jpeg"
+                    alt="Seajal Premium Purifier"
+                    className="w-full h-full object-contain mix-blend-multiply"
+                    onError={(e) => {
+                      e.currentTarget.src = 'https://placehold.co/600x600/transparent/0d9488?text=Pure+Water';
+                    }}
+                  />
                 </div>
+
+                {/* Floating UI Badge 1 */}
+                <motion.div
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                  className="absolute bottom-8 -left-4 sm:-left-8 glass p-4 rounded-2xl flex items-center gap-4 text-slate-800 shadow-xl border border-white/80 z-20"
+                >
+                  <div className="h-10 w-10 rounded-full bg-emerald-100 flex items-center justify-center border border-emerald-200">
+                    <CheckCircle className="h-5 w-5 text-emerald-600" />
+                  </div>
+                  <div className="pr-2">
+                    <h4 className="font-extrabold text-slate-900 text-sm">100% Pure</h4>
+                    <p className="text-[10px] text-slate-500 font-medium">Zero Impurities</p>
+                  </div>
+                </motion.div>
+
+                {/* Floating UI Badge 2 */}
+                <motion.div
+                  animate={{ y: [0, 10, 0] }}
+                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                  className="absolute top-12 -right-4 sm:-right-8 glass p-4 rounded-2xl flex items-center gap-3 text-slate-800 shadow-xl border border-white/80 z-20"
+                >
+                  <div className="h-10 w-10 rounded-full bg-teal-100 flex items-center justify-center border border-teal-200">
+                    <Droplet className="h-5 w-5 text-teal-600" />
+                  </div>
+                  <div className="pr-2">
+                    <h4 className="font-extrabold text-slate-900 text-sm">Mineral Rich</h4>
+                    <p className="text-[10px] text-slate-500 font-medium">Alkaline Boosted</p>
+                  </div>
+                </motion.div>
               </div>
             </TiltCard>
-          </div>
+          </motion.div>
         </div>
-        <AnimatedWaves />
       </section>
 
       {/* Services Grid Section */}
@@ -311,9 +393,9 @@ export default function Home() {
             const Icon = svc.icon;
             return (
               <TiltCard key={svc.title} className="h-full">
-                <div className="glass p-8 rounded-3xl h-full flex flex-col justify-between border border-blue-50/60 shadow-md">
+                <div className="glass p-8 rounded-3xl h-full flex flex-col justify-between border border-teal-50/60 shadow-md">
                   <div className="space-y-4">
-                    <div className="h-12 w-12 rounded-2xl bg-sky-50 flex items-center justify-center text-primary shadow-sm border border-sky-100">
+                    <div className="h-12 w-12 rounded-2xl bg-teal-50 flex items-center justify-center text-primary shadow-sm border border-teal-100">
                       <Icon className="h-6 w-6" />
                     </div>
                     <h3 className="text-xl font-bold text-slate-900">{svc.title}</h3>
@@ -353,13 +435,12 @@ export default function Home() {
                 <button
                   key={stg.num}
                   onClick={() => setActiveStage(index)}
-                  className={`w-full flex items-center gap-4 p-4 rounded-2xl border transition-all text-left focus:outline-none ${
-                    isActive
-                      ? 'bg-primary text-white border-primary shadow-lg shadow-sky-500/10 scale-102 font-bold'
-                      : 'bg-white text-slate-700 border-slate-100 hover:bg-slate-50'
-                  }`}
+                  className={`w-full flex items-center gap-4 p-4 rounded-2xl border transition-all text-left focus:outline-none ${isActive
+                    ? 'bg-primary text-white border-primary shadow-lg shadow-teal-500/10 scale-102 font-bold'
+                    : 'bg-white text-slate-700 border-slate-100 hover:bg-slate-50'
+                    }`}
                 >
-                  <span className={`text-lg font-black ${isActive ? 'text-cyan-200' : 'text-slate-300'}`}>{stg.num}</span>
+                  <span className={`text-lg font-black ${isActive ? 'text-teal-200' : 'text-slate-300'}`}>{stg.num}</span>
                   <span className="text-sm">{stg.name}</span>
                 </button>
               );
@@ -383,16 +464,16 @@ export default function Home() {
                 </div>
 
                 <span className="text-sm font-bold uppercase tracking-widest text-primary">Stage Diagnostic {stages[activeStage].num}</span>
-                
+
                 <h3 className="text-2xl font-black text-slate-900">{stages[activeStage].name}</h3>
-                
+
                 <p className="text-slate-600 leading-relaxed text-sm sm:text-base">{stages[activeStage].desc}</p>
-                
+
                 <div className="pt-6 border-t border-slate-100 flex flex-wrap gap-4 items-center">
                   <span className="flex items-center gap-1.5 text-xs font-semibold text-emerald-600 bg-emerald-50 px-3 py-1.5 rounded-lg border border-emerald-100">
                     <CheckCircle className="h-4 w-4" /> Active Pure
                   </span>
-                  <span className="flex items-center gap-1.5 text-xs font-semibold text-primary bg-sky-50 px-3 py-1.5 rounded-lg border border-sky-100">
+                  <span className="flex items-center gap-1.5 text-xs font-semibold text-primary bg-teal-50 px-3 py-1.5 rounded-lg border border-teal-100">
                     <Info className="h-4 w-4" /> Certified Grade
                   </span>
                 </div>
@@ -403,7 +484,7 @@ export default function Home() {
       </section>
 
       {/* Stats Section with proper visual separation */}
-      <section className="bg-gradient-to-r from-slate-900 to-sky-950 py-10 my-8 text-white overflow-hidden relative shadow-2xl">
+      <section className="bg-gradient-to-r from-[#082f49] to-[#0f766e] py-10 my-8 text-white overflow-hidden relative shadow-2xl">
         <BubbleParticles />
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
@@ -418,11 +499,11 @@ export default function Home() {
                   transition={{ duration: 0.6, delay: idx * 0.1 }}
                   className="space-y-3 py-4"
                 >
-                  <div className="mx-auto h-14 w-14 rounded-full bg-white/10 flex items-center justify-center text-cyan-300 mb-3 shadow-inner">
+                  <div className="mx-auto h-14 w-14 rounded-full bg-white/10 flex items-center justify-center text-teal-300 mb-3 shadow-inner">
                     <Icon className="h-6 w-6" />
                   </div>
                   <p className="text-4xl font-extrabold text-white">{stat.value}</p>
-                  <p className="text-xs uppercase tracking-wider text-sky-200 font-bold">{stat.label}</p>
+                  <p className="text-xs uppercase tracking-wider text-teal-100 font-bold">{stat.label}</p>
                 </motion.div>
               );
             })}
@@ -434,7 +515,7 @@ export default function Home() {
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
         <ScrollReveal>
           <div className="text-center max-w-3xl mx-auto space-y-4 mb-6">
-            <span className="text-xs font-extrabold uppercase tracking-widest text-primary bg-sky-50 border border-sky-100 px-3 py-1.5 rounded-full">
+            <span className="text-xs font-extrabold uppercase tracking-widest text-primary bg-teal-50 border border-teal-100 px-3 py-1.5 rounded-full">
               Seajal Safeguards
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">Why Prefers Seajal</h2>
@@ -460,7 +541,7 @@ export default function Home() {
                 className="bg-white p-8 rounded-3xl border border-slate-100 shadow-lg hover:border-primary/20 transition-all flex flex-col justify-between hover-card-trigger"
               >
                 <div className="space-y-4">
-                  <div className="h-12 w-12 rounded-xl bg-blue-50/80 flex items-center justify-center text-primary">
+                  <div className="h-12 w-12 rounded-xl bg-teal-50 flex items-center justify-center text-primary">
                     <Icon className="h-6 w-6" />
                   </div>
                   <h4 className="font-extrabold text-slate-900 text-base">{b.title}</h4>
@@ -473,7 +554,7 @@ export default function Home() {
       </section>
 
       {/* About Seajal Section */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
+      {/* <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
         <ScrollReveal>
           <div className="text-center max-w-3xl mx-auto space-y-4 mb-6">
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">About Seajal</h2>
@@ -487,78 +568,9 @@ export default function Home() {
             </div>
           </div>
         </ScrollReveal>
-      </section>
+      </section> */}
 
-      {/* Testimonials Section */}
-      <section className="bg-white py-8 border-y border-slate-100 shadow-sm my-6">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <ScrollReveal>
-            <div className="text-center max-w-3xl mx-auto space-y-4 mb-6">
-              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">What Our Clients Say</h2>
-            </div>
-          </ScrollReveal>
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-            variants={{ visible: { transition: { staggerChildren: 0.2 } }, hidden: {} }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-8"
-          >
-            <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
-              <TiltCard>
-                <div className="glass p-8 rounded-3xl h-full flex flex-col justify-between border border-blue-50/60 shadow-md bg-slate-50/50 hover-card-trigger">
-                  <div className="space-y-4">
-                    <div className="flex gap-1 text-amber-400 mb-4">
-                      <Star className="h-5 w-5 fill-current" />
-                      <Star className="h-5 w-5 fill-current" />
-                      <Star className="h-5 w-5 fill-current" />
-                      <Star className="h-5 w-5 fill-current" />
-                      <Star className="h-5 w-5 fill-current" />
-                    </div>
-                    <p className="text-slate-700 italic leading-relaxed text-lg">
-                      "We installed the Seajal Community Softener in our housing society in Thergaon. The hardness levels dropped from 600 ppm to 40 ppm, resolving scale issues completely. Their technicians are highly professional!"
-                    </p>
-                  </div>
-                  <div className="mt-8 pt-6 border-t border-slate-200 flex items-center gap-4">
-                    <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xl">HM</div>
-                    <div>
-                      <h4 className="font-bold text-slate-900">Hrishikesh Mankar</h4>
-                      <p className="text-sm text-slate-500">Secretary, Ganga Asiayana Society</p>
-                    </div>
-                  </div>
-                </div>
-              </TiltCard>
-            </motion.div>
-
-            <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
-              <TiltCard>
-                <div className="glass p-8 rounded-3xl h-full flex flex-col justify-between border border-blue-50/60 shadow-md bg-slate-50/50 hover-card-trigger">
-                  <div className="space-y-4">
-                    <div className="flex gap-1 text-amber-400 mb-4">
-                      <Star className="h-5 w-5 fill-current" />
-                      <Star className="h-5 w-5 fill-current" />
-                      <Star className="h-5 w-5 fill-current" />
-                      <Star className="h-5 w-5 fill-current" />
-                      <Star className="h-5 w-5 fill-current" />
-                    </div>
-                    <p className="text-slate-700 italic leading-relaxed text-lg">
-                      "We have been using Seajal Commercial 25 LPH Purifiers in our software development office in Hinjawadi for 2 years. Excellent taste, absolute reliability, and prompt routine filter replacement service."
-                    </p>
-                  </div>
-                  <div className="mt-8 pt-6 border-t border-slate-200 flex items-center gap-4">
-                    <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xl">SA</div>
-                    <div>
-                      <h4 className="font-bold text-slate-900">Sagar Ahir</h4>
-                      <p className="text-sm text-slate-500">Admin Lead</p>
-                    </div>
-                  </div>
-                </div>
-              </TiltCard>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
 
       {/* Featured Products */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
@@ -707,7 +719,76 @@ export default function Home() {
           />
         </div>
       </section>
+      {/* Testimonials Section */}
+      <section className="bg-white py-8 border-y border-slate-100 shadow-sm my-6">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <ScrollReveal>
+            <div className="text-center max-w-3xl mx-auto space-y-4 mb-6">
+              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">What Our Clients Say</h2>
+            </div>
+          </ScrollReveal>
 
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={{ visible: { transition: { staggerChildren: 0.2 } }, hidden: {} }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          >
+            <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
+              <TiltCard>
+                <div className="glass p-8 rounded-3xl h-full flex flex-col justify-between border border-teal-50/60 shadow-md bg-slate-50/50 hover-card-trigger">
+                  <div className="space-y-4">
+                    <div className="flex gap-1 text-amber-400 mb-4">
+                      <Star className="h-5 w-5 fill-current" />
+                      <Star className="h-5 w-5 fill-current" />
+                      <Star className="h-5 w-5 fill-current" />
+                      <Star className="h-5 w-5 fill-current" />
+                      <Star className="h-5 w-5 fill-current" />
+                    </div>
+                    <p className="text-slate-700 italic leading-relaxed text-lg">
+                      "We installed the Seajal Community Softener in our housing society in Thergaon. The hardness levels dropped from 600 ppm to 40 ppm, resolving scale issues completely. Their technicians are highly professional!"
+                    </p>
+                  </div>
+                  <div className="mt-8 pt-6 border-t border-slate-200 flex items-center gap-4">
+                    <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xl">HM</div>
+                    <div>
+                      <h4 className="font-bold text-slate-900">Hrishikesh Mankar</h4>
+                      <p className="text-sm text-slate-500">Secretary, Ganga Asiayana Society</p>
+                    </div>
+                  </div>
+                </div>
+              </TiltCard>
+            </motion.div>
+
+            <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
+              <TiltCard>
+                <div className="glass p-8 rounded-3xl h-full flex flex-col justify-between border border-teal-50/60 shadow-md bg-slate-50/50 hover-card-trigger">
+                  <div className="space-y-4">
+                    <div className="flex gap-1 text-amber-400 mb-4">
+                      <Star className="h-5 w-5 fill-current" />
+                      <Star className="h-5 w-5 fill-current" />
+                      <Star className="h-5 w-5 fill-current" />
+                      <Star className="h-5 w-5 fill-current" />
+                      <Star className="h-5 w-5 fill-current" />
+                    </div>
+                    <p className="text-slate-700 italic leading-relaxed text-lg">
+                      "We have been using Seajal Commercial 25 LPH Purifiers in our software development office in Hinjawadi for 2 years. Excellent taste, absolute reliability, and prompt routine filter replacement service."
+                    </p>
+                  </div>
+                  <div className="mt-8 pt-6 border-t border-slate-200 flex items-center gap-4">
+                    <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xl">SA</div>
+                    <div>
+                      <h4 className="font-bold text-slate-900">Sagar Ahir</h4>
+                      <p className="text-sm text-slate-500">Admin Lead</p>
+                    </div>
+                  </div>
+                </div>
+              </TiltCard>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
       {/* Latest Blogs Section */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
         <ScrollReveal>

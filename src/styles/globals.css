@@ -6,11 +6,11 @@
 }
 
 @theme {
-  --color-primary: #0284c7; /* Sky Azure */
-  --color-primary-dark: #0369a1;
-  --color-secondary: #0ea5e9; /* Bright Cyan wave */
-  --color-secondary-dark: #0284c7;
-  --color-accent: #f0f9ff; /* Soft Lagoon Water */
+  --color-primary: #0c4a6e; /* Deep Ocean Navy */
+  --color-primary-dark: #082f49;
+  --color-secondary: #0d9488; /* Vivid Teal */
+  --color-secondary-dark: #0f766e;
+  --color-accent: #ccfbf1; /* Aqua Mint */
   --color-neutral-dark: #0f172a;
   --color-neutral-light: #f8fafc;
 }
@@ -38,11 +38,11 @@ body {
 
 /* Elegant light glassmorphism cards */
 .glass {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(224, 242, 254, 0.6);
-  box-shadow: 0 4px 20px -2px rgba(14, 165, 233, 0.05);
+  border: 1px solid rgba(13, 148, 136, 0.15);
+  box-shadow: 0 4px 20px -2px rgba(12, 74, 110, 0.08);
 }
 
 .glass-dark {
@@ -58,23 +58,23 @@ body {
 }
 .hover-card-trigger:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 40px -15px rgba(2, 132, 199, 0.12);
-  border-color: rgba(2, 132, 199, 0.2);
+  box-shadow: 0 20px 40px -15px rgba(13, 148, 136, 0.15);
+  border-color: rgba(13, 148, 136, 0.3);
 }
 
 /* Gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, #0284c7 0%, #0ea5e9 100%);
+  background: linear-gradient(135deg, #0c4a6e 0%, #0d9488 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .gradient-bg {
-  background: linear-gradient(135deg, #0284c7 0%, #0ea5e9 100%);
+  background: linear-gradient(135deg, #0c4a6e 0%, #0d9488 100%);
 }
 
 .gradient-bg-light {
-  background: linear-gradient(180deg, #f0f9ff 0%, #e0f2fe 100%);
+  background: linear-gradient(180deg, #f0fdfa 0%, #ccfbf1 100%);
 }
 
 /* Animated Waves styling */
@@ -132,11 +132,11 @@ body {
 .bubble {
   position: absolute;
   bottom: -20px;
-  background-color: rgba(14, 165, 233, 0.15);
+  background-color: rgba(13, 148, 136, 0.2);
   border-radius: 50%;
   pointer-events: none;
   animation: float-up 10s infinite ease-in-out;
-  box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.6);
+  box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.8);
 }
 
 @keyframes float-up {

@@ -49,7 +49,7 @@ export default function ProductDetail({ product, relatedProducts }: ProductDetai
         {/* Product Details & Actions */}
         <div className="space-y-6">
           <div>
-            <span className="bg-blue-50 text-primary text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+            <span className="bg-teal-50 text-primary text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
               {product.categoryName}
             </span>
             <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2">{product.name}</h1>
@@ -68,7 +68,7 @@ export default function ProductDetail({ product, relatedProducts }: ProductDetai
             )}
           </div>
 
-          <div className="bg-blue-50/50 p-4 rounded-2xl border border-blue-100/50 flex items-start gap-3">
+          <div className="bg-teal-50/50 p-4 rounded-2xl border border-teal-100/50 flex items-start gap-3">
             <Info className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
             <div>
               <h4 className="text-sm font-bold text-slate-800">Water Solution Inquiry</h4>

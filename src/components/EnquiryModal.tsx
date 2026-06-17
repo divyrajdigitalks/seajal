@@ -55,11 +55,11 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ isOpen, onClose, pro
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
-      <div className="relative w-full max-w-md overflow-hidden rounded-2xl bg-white p-6 shadow-2xl transition-all-custom border border-slate-100">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 backdrop-blur-md p-4">
+      <div className="relative w-full max-w-lg overflow-hidden rounded-[2rem] bg-white p-8 shadow-2xl shadow-teal-900/20 border border-white/50">
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-slate-400 hover:text-slate-600 transition-colors"
+          className="absolute top-6 right-6 h-10 w-10 bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-700 rounded-full flex items-center justify-center transition-colors"
         >
           <X className="h-6 w-6" />
         </button>
@@ -74,42 +74,42 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ isOpen, onClose, pro
           </div>
         ) : (
           <div>
-            <h3 className="text-xl font-bold text-slate-800">
-              Enquiry for {productName || 'Water Solution'}
+            <h3 className="text-2xl font-extrabold text-slate-900 pr-10 leading-tight">
+              Enquiry for <span className="gradient-text">{productName || 'Water Solution'}</span>
             </h3>
-            <p className="mt-1 text-sm text-slate-500">
-              Please fill your requirements, and our team will get in touch with you.
+            <p className="mt-2 text-slate-500 font-medium">
+              Please share your details. Our technical experts will contact you shortly.
             </p>
 
             <form onSubmit={handleSubmit} className="mt-6 space-y-4">
               <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1">
-                  Describe your requirement
+                <label className="block text-xs font-bold uppercase tracking-widest text-slate-500 mb-2">
+                  Project Requirement
                 </label>
                 <textarea
                   value={requirement}
                   onChange={(e) => setRequirement(e.target.value)}
-                  placeholder="e.g. Commercial RO Plant for 200 staff office..."
-                  className="w-full rounded-xl border border-slate-200 p-3 text-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary min-h-[80px]"
+                  placeholder="e.g., Commercial RO Plant for 200 staff office..."
+                  className="w-full rounded-2xl bg-slate-50 border border-slate-200 p-4 text-sm text-slate-800 focus:bg-white focus:border-teal-400 focus:outline-none focus:ring-4 focus:ring-teal-400/10 min-h-[100px] transition-all resize-none shadow-inner"
                   required
                 />
               </div>
 
               <div className="grid grid-cols-4 gap-2">
                 <div className="col-span-1">
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1">
+                  <label className="block text-xs font-bold uppercase tracking-widest text-slate-500 mb-2">
                     Code
                   </label>
                   <input
                     type="text"
                     value={countryCode}
                     onChange={(e) => setCountryCode(e.target.value)}
-                    className="w-full rounded-xl border border-slate-200 p-3 text-sm text-center focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                    className="w-full rounded-2xl bg-slate-50 border border-slate-200 p-4 text-sm text-center font-bold text-slate-700 focus:bg-white focus:border-teal-400 focus:outline-none focus:ring-4 focus:ring-teal-400/10 transition-all shadow-inner"
                     required
                   />
                 </div>
                 <div className="col-span-3">
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1">
+                  <label className="block text-xs font-bold uppercase tracking-widest text-slate-500 mb-2">
                     Phone Number
                   </label>
                   <input
@@ -117,29 +117,29 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ isOpen, onClose, pro
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="Enter phone number"
-                    className="w-full rounded-xl border border-slate-200 p-3 text-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                    className="w-full rounded-2xl bg-slate-50 border border-slate-200 p-4 text-sm text-slate-800 focus:bg-white focus:border-teal-400 focus:outline-none focus:ring-4 focus:ring-teal-400/10 transition-all shadow-inner font-medium tracking-wide"
                     required
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1">
-                  Email Address (Optional)
+                <label className="block text-xs font-bold uppercase tracking-widest text-slate-500 mb-2">
+                  Email Address <span className="text-slate-400 font-normal normal-case">(Optional)</span>
                 </label>
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="name@example.com"
-                  className="w-full rounded-xl border border-slate-200 p-3 text-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                  placeholder="name@company.com"
+                  className="w-full rounded-2xl bg-slate-50 border border-slate-200 p-4 text-sm text-slate-800 focus:bg-white focus:border-teal-400 focus:outline-none focus:ring-4 focus:ring-teal-400/10 transition-all shadow-inner"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full gradient-bg hover:opacity-95 text-white font-semibold py-3 px-4 rounded-xl flex items-center justify-center gap-2 shadow-lg transition-all"
+                className="w-full gradient-bg hover:opacity-90 text-white font-extrabold py-4 px-6 rounded-2xl flex items-center justify-center gap-2 shadow-lg shadow-teal-500/25 transition-all hover:scale-[1.02] active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed mt-2"
               >
                 {loading ? (
                   <span className="h-5 w-5 animate-spin border-2 border-white border-t-transparent rounded-full" />

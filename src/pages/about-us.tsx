@@ -81,7 +81,7 @@ export default function AboutUs() {
               const Icon = v.icon;
               return (
                 <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} key={v.title} className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 space-y-4 hover:shadow-md transition-shadow hover:-translate-y-1 duration-300">
-                  <div className="h-12 w-12 rounded-2xl bg-blue-50 flex items-center justify-center text-primary">
+                  <div className="h-12 w-12 rounded-2xl bg-teal-50 flex items-center justify-center text-primary">
                     <Icon className="h-6 w-6" />
                   </div>
                   <h3 className="text-xl font-bold text-slate-900">{v.title}</h3>
@@ -143,7 +143,7 @@ export default function AboutUs() {
               "We installed the Seajal Community Softener in our housing society in thergaon. The hardness levels dropped from 600 ppm to 40 ppm, resolving scale issues completely. Their technicians are highly professional!"
             </p>
             <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center font-bold text-primary text-sm">
+              <div className="h-10 w-10 rounded-full bg-teal-100 flex items-center justify-center font-bold text-primary text-sm">
                 H
               </div>
               <div>
@@ -163,7 +163,7 @@ export default function AboutUs() {
               "We have been using Seajal Commercial 25 LPH Purifiers in our software development office in Hinjawadi for 2 years. Excellent taste, absolute reliability, and prompt routine filter replacement service."
             </p>
             <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center font-bold text-primary text-sm">
+              <div className="h-10 w-10 rounded-full bg-teal-100 flex items-center justify-center font-bold text-primary text-sm">
                 P
               </div>
               <div>
