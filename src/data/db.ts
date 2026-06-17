@@ -479,10 +479,22 @@ export const TEAM: TeamMember[] = [
 ];
 
 export const GALLERY: GalleryImage[] = [
-  { id: 1, title: "Industrial RO Installation - Pune MIDC", category: "setup", image: "/images/gallery/setup_1.jpg" },
-  { id: 2, title: "Seajal Flagship Showroom Entrance", category: "showroom", image: "/images/gallery/showroom_1.jpg" },
-  { id: 3, title: "Automatic Water Softener Vessel Setup", category: "setup", image: "/images/gallery/setup_2.jpg" },
-  { id: 4, title: "Premium Retail Purifier Display", category: "showroom", image: "/images/gallery/showroom_2.jpg" }
+  { id: 1, title: "Seajal Zico Cop Purifier", category: "product", image: "/f1.jpeg" },
+  { id: 2, title: "Seajal Community Water Softener", category: "product", image: "/f2.jpeg" },
+  { id: 3, title: "Commercial 25 LPH RO Purifier Plant", category: "product", image: "/f3.jpeg" },
+  { id: 4, title: "Seajal S-Series Sand Filter Softener", category: "product", image: "/f4.jpeg" },
+  { id: 5, title: "Seajal Alkaline Active Plus", category: "product", image: "/f5.jpeg" },
+  { id: 6, title: "Seajal Premium RO Cabinet System", category: "product", image: "/f6.jpeg" },
+  { id: 7, title: "Seajal Industrial 100 LPH RO System", category: "product", image: "/f7.jpeg" },
+  { id: 8, title: "Seajal Multi-port Media Softener", category: "product", image: "/f8.jpeg" },
+  { id: 9, title: "Seajal Smart RO+UV Alkaline Purifier", category: "product", image: "/f9.jpeg" },
+  { id: 10, title: "Seajal Commercial 50 LPH RO Plant", category: "product", image: "/f10.jpeg" },
+  { id: 11, title: "Seajal Whole House Water Softener", category: "product", image: "/f11.jpeg" },
+  { id: 12, title: "Seajal Copper Alkaline Mineralizer", category: "product", image: "/f12.jpeg" },
+  { id: 13, title: "Seajal Automatic Resin Regeneration Softener", category: "product", image: "/f13.jpeg" },
+  { id: 14, title: "Seajal Heavy Duty Dual RO Purifier", category: "product", image: "/f14.jpeg" },
+  { id: 15, title: "Seajal Hot & Cold Alkaline Purifier", category: "product", image: "/f15.jpeg" },
+  { id: 16, title: "Seajal Trio Purifier", category: "product", image: "/f16.png" }
 ];
 
 export const BROCHURES: Brochure[] = [

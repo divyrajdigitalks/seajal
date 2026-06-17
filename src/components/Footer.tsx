@@ -63,26 +63,20 @@ export const Footer: React.FC = () => {
           {/* Logo & Intro */}
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-2">
-              <span className="gradient-bg text-white font-extrabold text-lg h-8 w-8 rounded-full flex items-center justify-center shadow-md">
-                A1
-              </span>
-              <div className="flex flex-col">
-                <span className="text-lg font-bold tracking-tight text-white leading-none">Seajal</span>
-                <span className="text-[9px] uppercase font-bold tracking-widest text-secondary mt-0.5">Technologies</span>
-              </div>
+              <img src="/logo.png" alt="Seajal Logo" className="h-14 w-auto object-contain bg-white rounded-md px-2 py-1" />
             </Link>
             <p className="text-sm text-slate-400 leading-relaxed">
               Leading developer of water treatment projects, industrial water softeners, and residential smart purifiers. Dedicated to pure and healthy living.
             </p>
             <div className="flex space-x-3">
               <a href="#" className="h-8 w-8 rounded-full bg-slate-800 flex items-center justify-center hover:bg-secondary hover:text-white transition-colors" aria-label="Facebook">
-                <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24"><path d="M9 8H7v3h2v9h3v-9h3.6L16 8h-3V6.5c0-.8.2-1 1-1h2V2h-3C9.8 2 9 3.5 9 5.5V8z"/></svg>
+                <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24"><path d="M9 8H7v3h2v9h3v-9h3.6L16 8h-3V6.5c0-.8.2-1 1-1h2V2h-3C9.8 2 9 3.5 9 5.5V8z" /></svg>
               </a>
               <a href="#" className="h-8 w-8 rounded-full bg-slate-800 flex items-center justify-center hover:bg-secondary hover:text-white transition-colors" aria-label="Instagram">
-                <svg className="h-4 w-4 fill-none stroke-current stroke-2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                <svg className="h-4 w-4 fill-none stroke-current stroke-2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></svg>
               </a>
               <a href="#" className="h-8 w-8 rounded-full bg-slate-800 flex items-center justify-center hover:bg-secondary hover:text-white transition-colors" aria-label="Twitter">
-                <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" /></svg>
               </a>
             </div>
           </div>
@@ -145,14 +139,14 @@ export const Footer: React.FC = () => {
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="h-5 w-5 text-secondary flex-shrink-0" />
-                <a href="tel:+918048039988" className="hover:text-secondary transition-colors">
-                  +91 80480 39988
+                <a href="tel:+917770018181" className="hover:text-secondary transition-colors">
+                  +91 77700 18181
                 </a>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="h-5 w-5 text-secondary flex-shrink-0" />
-                <a href="mailto:info@aquaj1.in" className="hover:text-secondary transition-colors">
-                  info@aquaj1.in
+                <a href="mailto:seajalenterprises@gmail.com" className="hover:text-secondary transition-colors">
+                  seajalenterprises@gmail.com
                 </a>
               </li>
             </ul>

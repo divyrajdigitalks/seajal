@@ -29,7 +29,7 @@ export const Header: React.FC = () => {
     }
   };
 
-  const quickProducts = searchQuery.trim() 
+  const quickProducts = searchQuery.trim()
     ? PRODUCTS.filter(p => p.name.toLowerCase().includes(searchQuery.toLowerCase())).slice(0, 3)
     : [];
 
@@ -45,13 +45,7 @@ export const Header: React.FC = () => {
             {/* Logo - Water Droplet Theme */}
             <div className="flex items-center">
               <Link href="/" className="flex items-center gap-2">
-                <span className="gradient-bg text-white font-extrabold text-xl h-10 w-10 rounded-full flex items-center justify-center shadow-md relative overflow-hidden">
-                  <Droplet className="h-5 w-5 text-white fill-current animate-pulse" />
-                </span>
-                <div className="flex flex-col">
-                  <span className="text-xl font-bold tracking-tight text-primary leading-none">SEAJAL</span>
-                  <span className="text-[9px] uppercase font-bold tracking-widest text-secondary mt-0.5">Water Technologies</span>
-                </div>
+                <img src="/logo.png" alt="Seajal Logo" className="h-14 w-auto object-contain" />
               </Link>
             </div>
 
@@ -63,11 +57,10 @@ export const Header: React.FC = () => {
                   <Link
                     key={link.name}
                     href={link.href}
-                    className={`rounded-lg px-3 py-2 text-sm font-medium transition-all ${
-                      isActive
+                    className={`rounded-lg px-3 py-2 text-sm font-medium transition-all ${isActive
                         ? 'text-primary bg-primary/5 font-semibold'
                         : 'text-slate-600 hover:text-primary hover:bg-slate-50'
-                    }`}
+                      }`}
                   >
                     {link.name}
                   </Link>
@@ -86,11 +79,11 @@ export const Header: React.FC = () => {
               </button>
 
               <a
-                href="tel:+918048039988"
+                href="tel:+917770018181"
                 className="hidden lg:flex items-center gap-2 bg-primary hover:bg-primary-dark text-white px-4 py-2 rounded-xl text-sm font-semibold shadow-md transition-all"
               >
                 <Phone className="h-4 w-4" />
-                <span>+91 80480 39988</span>
+                <span>+91 77700 18181</span>
               </a>
 
               {/* Mobile menu button */}
@@ -114,22 +107,21 @@ export const Header: React.FC = () => {
                   key={link.name}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`block rounded-lg px-4 py-3 text-base font-medium transition-all ${
-                    isActive
+                  className={`block rounded-lg px-4 py-3 text-base font-medium transition-all ${isActive
                       ? 'text-primary bg-primary/5 font-semibold'
                       : 'text-slate-600 hover:text-primary hover:bg-slate-50'
-                  }`}
+                    }`}
                 >
                   {link.name}
                 </Link>
               );
             })}
             <a
-              href="tel:+918048039988"
+              href="tel:+917770018181"
               className="mt-4 flex items-center justify-center gap-2 bg-primary text-white py-3 rounded-xl font-semibold shadow-md"
             >
               <Phone className="h-4 w-4" />
-              <span>Call Us: +91 80480 39988</span>
+              <span>Call Us: +91 77700 18181</span>
             </a>
           </div>
         )}
@@ -174,8 +166,8 @@ export const Header: React.FC = () => {
                         <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Matching Products</h4>
                         <div className="space-y-2">
                           {quickProducts.map(product => (
-                            <Link 
-                              key={product.id} 
+                            <Link
+                              key={product.id}
                               href={`/products/${product.slug}/${product.id}`}
                               onClick={() => setSearchOpen(false)}
                               className="flex items-center gap-3 p-2 rounded-xl hover:bg-slate-50 transition-colors"
@@ -198,8 +190,8 @@ export const Header: React.FC = () => {
                         <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Latest Updates</h4>
                         <div className="space-y-2">
                           {quickBlogs.map(blog => (
-                            <Link 
-                              key={blog.id} 
+                            <Link
+                              key={blog.id}
                               href={`/latest-update/${blog.slug}/${blog.id}`}
                               onClick={() => setSearchOpen(false)}
                               className="block p-2 rounded-xl hover:bg-slate-50 transition-colors"

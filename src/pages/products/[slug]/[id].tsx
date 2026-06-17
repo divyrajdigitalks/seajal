@@ -87,7 +87,7 @@ export default function ProductDetail({ product, relatedProducts }: ProductDetai
                 <span>Get Quote</span>
               </button>
               <a
-                href={`https://wa.me/918048039988?text=Hi%20Aqua%20J1,%20I%20am%20interested%20in%20inquiring%20about%20${encodeURIComponent(product.name)}.`}
+                href={`https://wa.me/917770018181?text=Hi%20Aqua%20J1,%20I%20am%20interested%20in%20inquiring%20about%20${encodeURIComponent(product.name)}.`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full bg-[#25D366] hover:bg-[#20ba59] text-white font-semibold py-3 px-6 rounded-xl flex items-center justify-center gap-2 shadow-md transition-all active:scale-95 text-center"

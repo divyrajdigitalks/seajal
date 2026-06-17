@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const WhatsAppWidget: React.FC = () => {
-  const whatsappUrl = "https://wa.me/918048039988?text=Hi%20Aqua%20J1,%20I%20am%20interested%20in%20your%20water%20purifier/softener%20solutions.";
+  const whatsappUrl = "https://wa.me/917770018181?text=Hi%20Aqua%20J1,%20I%20am%20interested%20in%20your%20water%20purifier/softener%20solutions.";
 
   return (
     <a

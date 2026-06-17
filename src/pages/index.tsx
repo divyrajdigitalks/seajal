@@ -224,7 +224,7 @@ export default function Home() {
               Premium Water Purification <span className="text-cyan-300 drop-shadow-sm">Plants & Softeners</span>
             </h1>
             <p className="text-lg text-blue-100 max-w-xl mx-auto lg:mx-0">
-              Designs state-of-the-art reverse osmosis systems and automated water softeners. Protect your health and machinery with the best water in India.
+              Seajal designs state-of-the-art reverse osmosis systems and automated water softeners. Protect your health and machinery with the best water in Pune(India).
             </p>
 
             {/* Live Filtration Loop Visualization inside Hero */}
@@ -462,6 +462,84 @@ export default function Home() {
               </div>
             );
           })}
+        </div>
+      </section>
+
+      {/* About Seajal Section */}
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+        <ScrollReveal>
+          <div className="text-center max-w-3xl mx-auto space-y-4 mb-20">
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">About Seajal</h2>
+            <div className="text-left space-y-4 mt-8">
+              <p className="text-slate-600 leading-relaxed text-lg">
+                Seajal has spent over a decade leading the water purification market in India. Originally founded in PCMC, Pune, our dedication is to bring high-quality, pure water solutions directly to families and industries.
+              </p>
+              <p className="text-slate-600 leading-relaxed text-lg">
+                Our systems utilize advanced reverse osmosis, ultra-filtration, and ion-exchange softening resin to balance TDS, hardness, and minerals. From individual kitchens to housing complex communities and MIDC industries, we construct, supply, and support custom systems.
+              </p>
+            </div>
+          </div>
+        </ScrollReveal>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="bg-white py-16 border-y border-slate-100 shadow-sm my-12">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <ScrollReveal>
+            <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
+              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">What Our Clients Say</h2>
+            </div>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <TiltCard>
+              <div className="glass p-8 rounded-3xl h-full flex flex-col justify-between border border-blue-50/60 shadow-md bg-slate-50/50">
+                <div className="space-y-4">
+                  <div className="flex gap-1 text-amber-400 mb-4">
+                    <Star className="h-5 w-5 fill-current" />
+                    <Star className="h-5 w-5 fill-current" />
+                    <Star className="h-5 w-5 fill-current" />
+                    <Star className="h-5 w-5 fill-current" />
+                    <Star className="h-5 w-5 fill-current" />
+                  </div>
+                  <p className="text-slate-700 italic leading-relaxed text-lg">
+                    "We installed the Seajal Community Softener in our housing society in Thergaon. The hardness levels dropped from 600 ppm to 40 ppm, resolving scale issues completely. Their technicians are highly professional!"
+                  </p>
+                </div>
+                <div className="mt-8 pt-6 border-t border-slate-200 flex items-center gap-4">
+                  <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xl">HM</div>
+                  <div>
+                    <h4 className="font-bold text-slate-900">Hrishikesh Mankar</h4>
+                    <p className="text-sm text-slate-500">Secretary, Ganga Asiayana Society</p>
+                  </div>
+                </div>
+              </div>
+            </TiltCard>
+
+            <TiltCard>
+              <div className="glass p-8 rounded-3xl h-full flex flex-col justify-between border border-blue-50/60 shadow-md bg-slate-50/50">
+                <div className="space-y-4">
+                  <div className="flex gap-1 text-amber-400 mb-4">
+                    <Star className="h-5 w-5 fill-current" />
+                    <Star className="h-5 w-5 fill-current" />
+                    <Star className="h-5 w-5 fill-current" />
+                    <Star className="h-5 w-5 fill-current" />
+                    <Star className="h-5 w-5 fill-current" />
+                  </div>
+                  <p className="text-slate-700 italic leading-relaxed text-lg">
+                    "We have been using Seajal Commercial 25 LPH Purifiers in our software development office in Hinjawadi for 2 years. Excellent taste, absolute reliability, and prompt routine filter replacement service."
+                  </p>
+                </div>
+                <div className="mt-8 pt-6 border-t border-slate-200 flex items-center gap-4">
+                  <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xl">SA</div>
+                  <div>
+                    <h4 className="font-bold text-slate-900">Sagar Ahir</h4>
+                    <p className="text-sm text-slate-500">Admin Lead</p>
+                  </div>
+                </div>
+              </div>
+            </TiltCard>
+          </div>
         </div>
       </section>
 

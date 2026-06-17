@@ -9,7 +9,7 @@ interface GalleryProps {
 }
 
 export default function ImageGallery({ images }: GalleryProps) {
-  const [activeFilter, setActiveFilter] = useState<'all' | 'setup' | 'showroom'>('all');
+  const [activeFilter, setActiveFilter] = useState<'all' | 'setup' | 'showroom' | 'product'>('all');
 
   const filteredImages = activeFilter === 'all'
     ? images
@@ -18,7 +18,8 @@ export default function ImageGallery({ images }: GalleryProps) {
   const filters = [
     { value: 'all', name: 'Show All' },
     { value: 'setup', name: 'Installations' },
-    { value: 'showroom', name: 'Our Showrooms' }
+    { value: 'showroom', name: 'Our Showrooms' },
+    { value: 'product', name: 'Products' }
   ];
 
   return (

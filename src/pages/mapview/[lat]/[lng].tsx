@@ -100,8 +100,8 @@ export default function ContactMapView() {
               <Phone className="h-5 w-5 text-primary flex-shrink-0" />
               <div>
                 <h4 className="font-bold text-slate-800">Customer Support</h4>
-                <a href="tel:+918048039988" className="text-sm text-primary hover:underline">
-                  +91 80480 39988
+                <a href="tel:+917770018181" className="text-sm text-primary hover:underline">
+                  +91 77700 18181
                 </a>
               </div>
             </div>
