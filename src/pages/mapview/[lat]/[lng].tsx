@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Send, CheckCircle, ChevronRight } from 'lucide-react';
 
 export default function ContactMapView() {
@@ -77,17 +78,25 @@ export default function ContactMapView() {
       </nav>
 
       {/* Main Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <motion.div 
+        initial="hidden"
+        animate="visible"
+        variants={{
+          visible: { transition: { staggerChildren: 0.1 } },
+          hidden: {}
+        }}
+        className="grid grid-cols-1 lg:grid-cols-2 gap-12"
+      >
         {/* Contact Info & Map */}
         <div className="space-y-6">
-          <div>
+          <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
             <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight">Get In Touch</h1>
             <p className="text-sm text-slate-500 mt-1">Visit our Pimple Saudagar showroom or drop us a query online.</p>
-          </div>
+          </motion.div>
 
-          <div className="bg-white p-6 rounded-3xl border border-slate-100 shadow-md space-y-4">
-            <div className="flex items-start gap-3.5">
-              <MapPin className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
+          <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="bg-white p-6 rounded-3xl border border-slate-100 shadow-md space-y-4">
+            <div className="flex items-start gap-3.5 group">
+              <MapPin className="h-6 w-6 text-primary flex-shrink-0 mt-1 group-hover:scale-110 transition-transform" />
               <div>
                 <h4 className="font-bold text-slate-800">Office Location</h4>
                 <p className="text-sm text-slate-600 mt-0.5">
@@ -96,8 +105,8 @@ export default function ContactMapView() {
               </div>
             </div>
 
-            <div className="flex items-center gap-3.5">
-              <Phone className="h-5 w-5 text-primary flex-shrink-0" />
+            <div className="flex items-center gap-3.5 group">
+              <Phone className="h-5 w-5 text-primary flex-shrink-0 group-hover:scale-110 transition-transform" />
               <div>
                 <h4 className="font-bold text-slate-800">Customer Support</h4>
                 <a href="tel:+917770018181" className="text-sm text-primary hover:underline">
@@ -106,8 +115,8 @@ export default function ContactMapView() {
               </div>
             </div>
 
-            <div className="flex items-center gap-3.5">
-              <Mail className="h-5 w-5 text-primary flex-shrink-0" />
+            <div className="flex items-center gap-3.5 group">
+              <Mail className="h-5 w-5 text-primary flex-shrink-0 group-hover:scale-110 transition-transform" />
               <div>
                 <h4 className="font-bold text-slate-800">E-mail Queries</h4>
                 <a href="mailto:info@aquaj1.in" className="text-sm text-primary hover:underline">
@@ -115,22 +124,22 @@ export default function ContactMapView() {
                 </a>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Embedded Google Map */}
-          <div className="rounded-3xl overflow-hidden shadow-md border border-slate-100 aspect-video w-full bg-slate-100">
+          <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="rounded-3xl overflow-hidden shadow-md border border-slate-100 aspect-video w-full bg-slate-100">
             <iframe
               src={mapUrl}
-              className="w-full h-full border-0"
+              className="w-full h-full border-0 grayscale hover:grayscale-0 transition-all duration-700"
               allowFullScreen
               loading="lazy"
               title="Seajal Showroom Location"
             />
-          </div>
+          </motion.div>
         </div>
 
         {/* Contact Form */}
-        <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-md">
+        <motion.div variants={{ hidden: { opacity: 0, x: 20 }, visible: { opacity: 1, x: 0 } }} className="bg-white p-8 rounded-3xl border border-slate-100 shadow-md">
           <h2 className="text-xl font-bold text-slate-900 mb-6">Send Us a Direct Message</h2>
 
           {submitted ? (
@@ -143,7 +152,7 @@ export default function ContactMapView() {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
+              <motion.div whileHover={{ scale: 1.01 }} transition={{ type: "spring", stiffness: 400, damping: 25 }}>
                 <label className="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1">
                   Full Name
                 </label>
@@ -152,10 +161,10 @@ export default function ContactMapView() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Enter name"
-                  className="w-full rounded-xl border border-slate-200 p-3 text-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                  className="w-full rounded-xl border border-slate-200 p-3 text-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-shadow"
                   required
                 />
-              </div>
+              </motion.div>
 
               <div>
                 <label className="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1">
@@ -224,18 +233,20 @@ export default function ContactMapView() {
                 />
               </div>
 
-              <button
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
                 type="submit"
                 disabled={loading}
-                className="w-full gradient-bg hover:opacity-95 text-white font-semibold py-3 px-4 rounded-xl flex items-center justify-center gap-2 shadow-lg transition-all"
+                className="w-full gradient-bg text-white font-semibold py-3 px-4 rounded-xl flex items-center justify-center gap-2 shadow-lg transition-all hover:shadow-xl"
               >
                 <span>Send Message</span>
                 <Send className="h-4 w-4" />
-              </button>
+              </motion.button>
             </form>
           )}
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
   );
 }

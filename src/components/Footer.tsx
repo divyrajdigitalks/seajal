@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Mail, Phone, MapPin, Send, CheckCircle2 } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { CATEGORIES } from '../data/db';
 
 export const Footer: React.FC = () => {
@@ -59,9 +60,18 @@ export const Footer: React.FC = () => {
 
       {/* Main links section */}
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={{
+            visible: { transition: { staggerChildren: 0.1 } },
+            hidden: {}
+          }}
+          className="grid grid-cols-1 md:grid-cols-4 gap-8"
+        >
           {/* Logo & Intro */}
-          <div className="space-y-4">
+          <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="space-y-4">
             <Link href="/" className="flex items-center gap-2">
               <img src="/logo.png" alt="Seajal Logo" className="h-14 w-auto object-contain bg-white rounded-md px-2 py-1" />
             </Link>
@@ -79,10 +89,10 @@ export const Footer: React.FC = () => {
                 <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" /></svg>
               </a>
             </div>
-          </div>
+          </motion.div>
 
           {/* Categories */}
-          <div>
+          <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
             <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-4">Product Categories</h4>
             <ul className="space-y-2 text-sm">
               {CATEGORIES.map((cat) => (
@@ -93,10 +103,10 @@ export const Footer: React.FC = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Quick links */}
-          <div>
+          <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
             <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-4">Quick Links</h4>
             <ul className="space-y-2 text-sm">
               <li>
@@ -125,10 +135,10 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
             </ul>
-          </div>
+          </motion.div>
 
           {/* Contact Details */}
-          <div>
+          <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
             <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-4">Official Contact</h4>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2">
@@ -150,8 +160,8 @@ export const Footer: React.FC = () => {
                 </a>
               </li>
             </ul>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
 
       {/* Bottom copy */}

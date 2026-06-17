@@ -5,8 +5,12 @@ import { CartProvider } from "../context/CartContext";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { WhatsAppWidget } from "../components/WhatsAppWidget";
+import { AnimatePresence, motion } from "framer-motion";
+import { useRouter } from "next/router";
 
 export default function App({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+
   return (
     <CartProvider>
       <Head>
@@ -17,9 +21,18 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
       <div className="flex flex-col min-h-screen bg-slate-50">
         <Header />
-        <main className="flex-grow">
-          <Component {...pageProps} />
-        </main>
+        <AnimatePresence mode="wait">
+          <motion.main
+            key={router.asPath}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            className="flex-grow"
+          >
+            <Component {...pageProps} />
+          </motion.main>
+        </AnimatePresence>
         <Footer />
         <WhatsAppWidget />
       </div>

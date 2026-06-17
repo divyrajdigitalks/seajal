@@ -195,9 +195,9 @@ export default function Home() {
   ];
 
   return (
-    <div className="relative bg-[#f8fafc] space-y-36 pb-24">
+    <div className="relative bg-[#f8fafc] space-y-6 pb-8">
       {/* Light Ocean Hero Banner with photorealistic Sea Water Backdrop */}
-      <section className="relative overflow-hidden bg-slate-900 text-white pt-28 pb-48">
+      <section className="relative overflow-hidden bg-slate-900 text-white pt-24 pb-32">
         {/* Full-bleed Sea background layer */}
         <div className="absolute inset-0 z-0 opacity-70">
           <img
@@ -296,9 +296,9 @@ export default function Home() {
       </section>
 
       {/* Services Grid Section */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 py-12">
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
         <ScrollReveal>
-          <div className="text-center max-w-3xl mx-auto space-y-4 mb-20">
+          <div className="text-center max-w-3xl mx-auto space-y-4 mb-6">
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">What We Do</h2>
             <p className="text-slate-600">
               We offer specialized water filtration and softening services configured by highly experienced design engineers.
@@ -334,9 +334,9 @@ export default function Home() {
       </section>
 
       {/* 7-Stage Purification Interactive Console Dashboard */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
         <ScrollReveal>
-          <div className="text-center max-w-3xl mx-auto space-y-4 mb-20">
+          <div className="text-center max-w-3xl mx-auto space-y-4 mb-6">
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">7-Stage Seajal purifier Process</h2>
             <p className="text-slate-600">
               Click on each filtration layer to explore the scientific diagnostics inside our smart purifiers.
@@ -403,7 +403,7 @@ export default function Home() {
       </section>
 
       {/* Stats Section with proper visual separation */}
-      <section className="bg-gradient-to-r from-slate-900 to-sky-950 py-36 my-28 text-white overflow-hidden relative shadow-2xl">
+      <section className="bg-gradient-to-r from-slate-900 to-sky-950 py-10 my-8 text-white overflow-hidden relative shadow-2xl">
         <BubbleParticles />
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
@@ -431,9 +431,9 @@ export default function Home() {
       </section>
 
       {/* Seajal Quality Benefits Checklist */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
         <ScrollReveal>
-          <div className="text-center max-w-3xl mx-auto space-y-4 mb-20">
+          <div className="text-center max-w-3xl mx-auto space-y-4 mb-6">
             <span className="text-xs font-extrabold uppercase tracking-widest text-primary bg-sky-50 border border-sky-100 px-3 py-1.5 rounded-full">
               Seajal Safeguards
             </span>
@@ -444,13 +444,20 @@ export default function Home() {
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={{ visible: { transition: { staggerChildren: 0.1 } }, hidden: {} }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+        >
           {benefits.map((b, idx) => {
             const Icon = b.icon;
             return (
-              <div
+              <motion.div
+                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
                 key={b.title}
-                className="bg-white p-8 rounded-3xl border border-slate-100 shadow-lg hover:border-primary/20 transition-all flex flex-col justify-between"
+                className="bg-white p-8 rounded-3xl border border-slate-100 shadow-lg hover:border-primary/20 transition-all flex flex-col justify-between hover-card-trigger"
               >
                 <div className="space-y-4">
                   <div className="h-12 w-12 rounded-xl bg-blue-50/80 flex items-center justify-center text-primary">
@@ -459,16 +466,16 @@ export default function Home() {
                   <h4 className="font-extrabold text-slate-900 text-base">{b.title}</h4>
                   <p className="text-xs text-slate-500 leading-relaxed">{b.desc}</p>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </section>
 
       {/* About Seajal Section */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
         <ScrollReveal>
-          <div className="text-center max-w-3xl mx-auto space-y-4 mb-20">
+          <div className="text-center max-w-3xl mx-auto space-y-4 mb-6">
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">About Seajal</h2>
             <div className="text-left space-y-4 mt-8">
               <p className="text-slate-600 leading-relaxed text-lg">
@@ -483,70 +490,80 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="bg-white py-16 border-y border-slate-100 shadow-sm my-12">
+      <section className="bg-white py-8 border-y border-slate-100 shadow-sm my-6">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
-            <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
+            <div className="text-center max-w-3xl mx-auto space-y-4 mb-6">
               <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">What Our Clients Say</h2>
             </div>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <TiltCard>
-              <div className="glass p-8 rounded-3xl h-full flex flex-col justify-between border border-blue-50/60 shadow-md bg-slate-50/50">
-                <div className="space-y-4">
-                  <div className="flex gap-1 text-amber-400 mb-4">
-                    <Star className="h-5 w-5 fill-current" />
-                    <Star className="h-5 w-5 fill-current" />
-                    <Star className="h-5 w-5 fill-current" />
-                    <Star className="h-5 w-5 fill-current" />
-                    <Star className="h-5 w-5 fill-current" />
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={{ visible: { transition: { staggerChildren: 0.2 } }, hidden: {} }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          >
+            <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
+              <TiltCard>
+                <div className="glass p-8 rounded-3xl h-full flex flex-col justify-between border border-blue-50/60 shadow-md bg-slate-50/50 hover-card-trigger">
+                  <div className="space-y-4">
+                    <div className="flex gap-1 text-amber-400 mb-4">
+                      <Star className="h-5 w-5 fill-current" />
+                      <Star className="h-5 w-5 fill-current" />
+                      <Star className="h-5 w-5 fill-current" />
+                      <Star className="h-5 w-5 fill-current" />
+                      <Star className="h-5 w-5 fill-current" />
+                    </div>
+                    <p className="text-slate-700 italic leading-relaxed text-lg">
+                      "We installed the Seajal Community Softener in our housing society in Thergaon. The hardness levels dropped from 600 ppm to 40 ppm, resolving scale issues completely. Their technicians are highly professional!"
+                    </p>
                   </div>
-                  <p className="text-slate-700 italic leading-relaxed text-lg">
-                    "We installed the Seajal Community Softener in our housing society in Thergaon. The hardness levels dropped from 600 ppm to 40 ppm, resolving scale issues completely. Their technicians are highly professional!"
-                  </p>
-                </div>
-                <div className="mt-8 pt-6 border-t border-slate-200 flex items-center gap-4">
-                  <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xl">HM</div>
-                  <div>
-                    <h4 className="font-bold text-slate-900">Hrishikesh Mankar</h4>
-                    <p className="text-sm text-slate-500">Secretary, Ganga Asiayana Society</p>
+                  <div className="mt-8 pt-6 border-t border-slate-200 flex items-center gap-4">
+                    <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xl">HM</div>
+                    <div>
+                      <h4 className="font-bold text-slate-900">Hrishikesh Mankar</h4>
+                      <p className="text-sm text-slate-500">Secretary, Ganga Asiayana Society</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </TiltCard>
+              </TiltCard>
+            </motion.div>
 
-            <TiltCard>
-              <div className="glass p-8 rounded-3xl h-full flex flex-col justify-between border border-blue-50/60 shadow-md bg-slate-50/50">
-                <div className="space-y-4">
-                  <div className="flex gap-1 text-amber-400 mb-4">
-                    <Star className="h-5 w-5 fill-current" />
-                    <Star className="h-5 w-5 fill-current" />
-                    <Star className="h-5 w-5 fill-current" />
-                    <Star className="h-5 w-5 fill-current" />
-                    <Star className="h-5 w-5 fill-current" />
+            <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
+              <TiltCard>
+                <div className="glass p-8 rounded-3xl h-full flex flex-col justify-between border border-blue-50/60 shadow-md bg-slate-50/50 hover-card-trigger">
+                  <div className="space-y-4">
+                    <div className="flex gap-1 text-amber-400 mb-4">
+                      <Star className="h-5 w-5 fill-current" />
+                      <Star className="h-5 w-5 fill-current" />
+                      <Star className="h-5 w-5 fill-current" />
+                      <Star className="h-5 w-5 fill-current" />
+                      <Star className="h-5 w-5 fill-current" />
+                    </div>
+                    <p className="text-slate-700 italic leading-relaxed text-lg">
+                      "We have been using Seajal Commercial 25 LPH Purifiers in our software development office in Hinjawadi for 2 years. Excellent taste, absolute reliability, and prompt routine filter replacement service."
+                    </p>
                   </div>
-                  <p className="text-slate-700 italic leading-relaxed text-lg">
-                    "We have been using Seajal Commercial 25 LPH Purifiers in our software development office in Hinjawadi for 2 years. Excellent taste, absolute reliability, and prompt routine filter replacement service."
-                  </p>
-                </div>
-                <div className="mt-8 pt-6 border-t border-slate-200 flex items-center gap-4">
-                  <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xl">SA</div>
-                  <div>
-                    <h4 className="font-bold text-slate-900">Sagar Ahir</h4>
-                    <p className="text-sm text-slate-500">Admin Lead</p>
+                  <div className="mt-8 pt-6 border-t border-slate-200 flex items-center gap-4">
+                    <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xl">SA</div>
+                    <div>
+                      <h4 className="font-bold text-slate-900">Sagar Ahir</h4>
+                      <p className="text-sm text-slate-500">Admin Lead</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </TiltCard>
-          </div>
+              </TiltCard>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       {/* Featured Products */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
         <ScrollReveal>
-          <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-20">
+          <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-6">
             <div className="space-y-2">
               <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">Featured Products</h2>
               <p className="text-slate-600">Explore our premium range of commercial and household filters.</p>
@@ -561,64 +578,72 @@ export default function Home() {
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={{ visible: { transition: { staggerChildren: 0.1 } }, hidden: {} }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
           {PRODUCTS.slice(0, 3).map((product) => (
-            <TiltCard key={product.id}>
-              <div className="bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-lg flex flex-col h-full justify-between">
-                <div>
-                  <div className="relative aspect-square w-full bg-slate-50 flex items-center justify-center overflow-hidden">
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="h-full w-full object-cover hover:scale-105 transition-transform duration-300"
-                      onError={(e) => {
-                        e.currentTarget.src = 'https://placehold.co/400x400?text=Seajal';
-                      }}
-                    />
-                    {product.isEcommerce && (
-                      <span className="absolute top-4 right-4 bg-emerald-500 text-white text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded-full shadow-sm">
-                        COD Available
-                      </span>
-                    )}
-                  </div>
-                  <div className="p-6 space-y-2">
-                    <span className="text-xs font-bold text-secondary uppercase tracking-widest">{product.categoryName}</span>
-                    <h3 className="text-lg font-bold text-slate-900 truncate">
-                      <Link href={`/products/${product.slug}/${product.id}`} className="hover:text-primary transition-colors">
-                        {product.name}
-                      </Link>
-                    </h3>
-                    <p className="text-slate-600 text-sm line-clamp-2 leading-relaxed">{product.description}</p>
-                  </div>
-                </div>
-                <div className="p-6 pt-0 border-t border-slate-50 flex items-center justify-between gap-4 mt-auto">
-                  {product.price ? (
-                    <div className="flex flex-col">
-                      <span className="text-slate-950 font-bold text-sm">₹{product.price.toLocaleString('en-IN')}</span>
-                      {product.originalPrice && (
-                        <span className="text-slate-400 text-xs line-through">₹{product.originalPrice.toLocaleString('en-IN')}</span>
+            <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} key={product.id}>
+              <TiltCard>
+                <div className="bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-lg flex flex-col h-full justify-between hover-card-trigger">
+                  <div>
+                    <div className="relative h-64 w-full bg-white flex items-center justify-center overflow-hidden p-6 border-b border-slate-50">
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        className="h-full w-full object-contain drop-shadow-sm hover:scale-105 transition-transform duration-300"
+                        onError={(e) => {
+                          e.currentTarget.src = 'https://placehold.co/400x400?text=Seajal';
+                        }}
+                      />
+                      {product.isEcommerce && (
+                        <span className="absolute top-4 right-4 bg-emerald-500 text-white text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded-full shadow-sm">
+                          COD Available
+                        </span>
                       )}
                     </div>
-                  ) : (
-                    <span className="text-slate-500 text-xs font-semibold uppercase tracking-wider">Get Quote</span>
-                  )}
-                  <Link
-                    href={`/products/${product.slug}/${product.id}`}
-                    className="bg-primary hover:bg-primary-dark text-white font-semibold text-xs px-4 py-2.5 rounded-xl shadow-md transition-all"
-                  >
-                    View Details
-                  </Link>
+                    <div className="p-6 space-y-2">
+                      <span className="text-xs font-bold text-secondary uppercase tracking-widest">{product.categoryName}</span>
+                      <h3 className="text-lg font-bold text-slate-900 truncate">
+                        <Link href={`/products/${product.slug}/${product.id}`} className="hover:text-primary transition-colors">
+                          {product.name}
+                        </Link>
+                      </h3>
+                      <p className="text-slate-600 text-sm line-clamp-2 leading-relaxed">{product.description}</p>
+                    </div>
+                  </div>
+                  <div className="p-6 pt-0 border-t border-slate-50 flex items-center justify-between gap-4 mt-auto">
+                    {product.price ? (
+                      <div className="flex flex-col">
+                        <span className="text-slate-950 font-bold text-sm">₹{product.price.toLocaleString('en-IN')}</span>
+                        {product.originalPrice && (
+                          <span className="text-slate-400 text-xs line-through">₹{product.originalPrice.toLocaleString('en-IN')}</span>
+                        )}
+                      </div>
+                    ) : (
+                      <span className="text-slate-500 text-xs font-semibold uppercase tracking-wider">Get Quote</span>
+                    )}
+                    <Link
+                      href={`/products/${product.slug}/${product.id}`}
+                      className="bg-primary hover:bg-primary-dark text-white font-semibold text-xs px-4 py-2.5 rounded-xl shadow-md transition-all"
+                    >
+                      View Details
+                    </Link>
+                  </div>
                 </div>
-              </div>
-            </TiltCard>
+              </TiltCard>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </section>
 
       {/* Founders and Team Section */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
         <ScrollReveal>
-          <div className="text-center max-w-3xl mx-auto space-y-4 mb-20">
+          <div className="text-center max-w-3xl mx-auto space-y-4 mb-6">
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">Our Founding Team</h2>
             <p className="text-slate-600">
               Guided by technical excellence, our leaders have configured reliable clean water structures for thousands of premises.
@@ -626,34 +651,42 @@ export default function Home() {
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={{ visible: { transition: { staggerChildren: 0.1 } }, hidden: {} }}
+          className="grid grid-cols-1 sm:grid-cols-3 gap-8"
+        >
           {TEAM.map((member) => (
-            <TiltCard key={member.id}>
-              <div className="text-center space-y-3 bg-white p-6 rounded-3xl border border-slate-100 shadow-sm h-full">
-                <div className="mx-auto w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-lg bg-slate-100 flex items-center justify-center">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="h-full w-full object-cover"
-                    onError={(e) => {
-                      e.currentTarget.src = 'https://placehold.co/150x150?text=' + member.name.charAt(0);
-                    }}
-                  />
+            <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} key={member.id}>
+              <TiltCard>
+                <div className="text-center space-y-3 bg-white p-6 rounded-3xl border border-slate-100 shadow-sm h-full hover-card-trigger">
+                  <div className="mx-auto w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-lg bg-slate-100 flex items-center justify-center">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="h-full w-full object-cover"
+                      onError={(e) => {
+                        e.currentTarget.src = 'https://placehold.co/150x150?text=' + member.name.charAt(0);
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold text-slate-900">{member.name}</h4>
+                    <p className="text-sm text-secondary font-medium">{member.role}</p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="text-lg font-bold text-slate-900">{member.name}</h4>
-                  <p className="text-sm text-secondary font-medium">{member.role}</p>
-                </div>
-              </div>
-            </TiltCard>
+              </TiltCard>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </section>
 
       {/* Frequently Asked Questions (FAQ) Section */}
-      <section className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12">
+      <section className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-6">
         <ScrollReveal>
-          <div className="text-center space-y-4 mb-20">
+          <div className="text-center space-y-4 mb-6">
             <h2 className="text-3xl font-bold text-slate-900">Common Questions</h2>
             <p className="text-slate-600">Find answers to water softener installation, maintenance, and filter life.</p>
           </div>
@@ -676,9 +709,9 @@ export default function Home() {
       </section>
 
       {/* Latest Blogs Section */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
         <ScrollReveal>
-          <div className="text-center max-w-3xl mx-auto space-y-4 mb-20">
+          <div className="text-center max-w-3xl mx-auto space-y-4 mb-6">
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">Latest Updates</h2>
             <p className="text-slate-600">Read the latest articles on water treatment projects, systems, and guidelines.</p>
           </div>

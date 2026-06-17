@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Link from 'next/link';
 import { ChevronRight, LayoutGrid } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { GALLERY, GalleryImage } from '../../data/db';
 
 interface GalleryProps {
@@ -57,30 +58,37 @@ export default function ImageGallery({ images }: GalleryProps) {
       </div>
 
       {/* Masonry image layout */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredImages.map((img) => (
-          <div
-            key={img.id}
-            className="group relative bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-md hover:shadow-lg transition-all"
-          >
-            <div className="aspect-video sm:aspect-square w-full bg-slate-50 overflow-hidden flex items-center justify-center">
-              <img
-                src={img.image}
-                alt={img.title}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                onError={(e) => { e.currentTarget.src = 'https://images.unsplash.com/photo-1585829365295-ab7cd400c167?auto=format&fit=crop&q=80&w=400' }}
-              />
-            </div>
-            {/* Hover details overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5 text-white">
-              <span className="text-[10px] font-extrabold tracking-wider uppercase text-secondary">
-                {img.category === 'setup' ? 'Installation' : 'Showroom'}
-              </span>
-              <h4 className="text-sm font-bold mt-1">{img.title}</h4>
-            </div>
-          </div>
-        ))}
-      </div>
+      <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <AnimatePresence>
+          {filteredImages.map((img) => (
+            <motion.div
+              layout
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.3 }}
+              key={img.id}
+              className="group relative bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-md hover:shadow-lg transition-all"
+            >
+              <div className="aspect-video sm:aspect-square w-full bg-slate-50 overflow-hidden flex items-center justify-center">
+                <img
+                  src={img.image}
+                  alt={img.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  onError={(e) => { e.currentTarget.src = 'https://images.unsplash.com/photo-1585829365295-ab7cd400c167?auto=format&fit=crop&q=80&w=400' }}
+                />
+              </div>
+              {/* Hover details overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5 text-white">
+                <span className="text-[10px] font-extrabold tracking-wider uppercase text-secondary">
+                  {img.category === 'setup' ? 'Installation' : img.category === 'product' ? 'Product' : 'Showroom'}
+                </span>
+                <h4 className="text-sm font-bold mt-1">{img.title}</h4>
+              </div>
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </motion.div>
     </div>
   );
 }

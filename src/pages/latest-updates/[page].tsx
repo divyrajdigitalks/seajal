@@ -1,6 +1,7 @@
 import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import { Calendar, User, ArrowLeft, ArrowRight, ChevronRight } from 'lucide-react';
 import { BLOGS, Blog } from '../../data/db';
 
@@ -29,17 +30,26 @@ export default function LatestUpdates({ blogs, currentPage, totalPages }: BlogsP
       </div>
 
       {/* Blog Cards list */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <motion.div 
+        initial="hidden"
+        animate="visible"
+        variants={{
+          visible: { transition: { staggerChildren: 0.1 } },
+          hidden: {}
+        }}
+        className="grid grid-cols-1 md:grid-cols-2 gap-8"
+      >
         {blogs.map((blog) => (
-          <div
+          <motion.div
+            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
             key={blog.id}
-            className="bg-white rounded-3xl overflow-hidden shadow-md border border-slate-100 flex flex-col sm:flex-row gap-6 p-6 transition-all hover:shadow-lg"
+            className="bg-white rounded-3xl overflow-hidden shadow-md border border-slate-100 flex flex-col sm:flex-row gap-6 p-6 transition-all hover:shadow-xl hover:-translate-y-1 duration-300"
           >
             <div className="sm:w-1/3 aspect-video sm:aspect-square bg-slate-100 rounded-2xl overflow-hidden flex-shrink-0 flex items-center justify-center">
               <img
                 src={blog.image}
                 alt={blog.title}
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover hover:scale-105 transition-transform duration-500"
                 onError={(e) => { e.currentTarget.src = 'https://placehold.co/300x300?text=AquaJ1' }}
               />
             </div>
@@ -70,9 +80,9 @@ export default function LatestUpdates({ blogs, currentPage, totalPages }: BlogsP
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
 
       {/* Pagination Footer */}
       {totalPages > 1 && (

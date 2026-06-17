@@ -2,6 +2,7 @@ import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import { Search, SlidersHorizontal, ArrowLeft, ArrowRight } from 'lucide-react';
 import { PRODUCTS, CATEGORIES, Product } from '../../data/db';
 
@@ -71,19 +72,28 @@ export default function AllProducts({ products, currentPage, totalPages, totalCo
           </Link>
         </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={{
+            visible: { transition: { staggerChildren: 0.1 } },
+            hidden: {}
+          }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
           {displayedProducts.map((product) => (
-            <div
+            <motion.div
+              variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
               key={product.id}
-              className="bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-md hover:shadow-lg transition-all flex flex-col justify-between"
+              className="bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between hover:-translate-y-1"
             >
               <div>
-                <div className="relative aspect-square w-full bg-slate-50 flex items-center justify-center overflow-hidden">
+                <div className="relative h-64 w-full bg-white flex items-center justify-center overflow-hidden p-6 border-b border-slate-50">
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="h-full w-full object-cover hover:scale-105 transition-transform duration-300"
-                    onError={(e) => { e.currentTarget.src = 'https://placehold.co/400x400?text=AquaJ1' }}
+                    className="h-full w-full object-contain drop-shadow-sm hover:scale-105 transition-transform duration-300"
+                    onError={(e) => { e.currentTarget.src = 'https://placehold.co/400x400?text=Seajal' }}
                   />
                 </div>
                 <div className="p-6 space-y-2">
@@ -114,9 +124,9 @@ export default function AllProducts({ products, currentPage, totalPages, totalCo
                   View Details
                 </Link>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       )}
 
       {/* Pagination Footer */}

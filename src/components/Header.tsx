@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Search, Menu, X, Phone, Droplet } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { PRODUCTS, BLOGS } from '../data/db';
 
 export const Header: React.FC = () => {
@@ -57,12 +58,20 @@ export const Header: React.FC = () => {
                   <Link
                     key={link.name}
                     href={link.href}
-                    className={`rounded-lg px-3 py-2 text-sm font-medium transition-all ${isActive
-                        ? 'text-primary bg-primary/5 font-semibold'
-                        : 'text-slate-600 hover:text-primary hover:bg-slate-50'
-                      }`}
+                    className={`relative rounded-lg px-3 py-2 text-sm font-medium transition-all group ${
+                      isActive
+                        ? 'text-primary font-semibold'
+                        : 'text-slate-600 hover:text-primary'
+                    }`}
                   >
                     {link.name}
+                    {isActive && (
+                      <motion.div
+                        layoutId="nav-pill"
+                        className="absolute inset-0 bg-primary/5 rounded-lg -z-10"
+                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                      />
+                    )}
                   </Link>
                 );
               })}
@@ -98,33 +107,40 @@ export const Header: React.FC = () => {
         </div>
 
         {/* Mobile Navigation Drawer */}
-        {mobileMenuOpen && (
-          <div className="md:hidden border-t border-slate-100 bg-white/95 backdrop-blur-md px-4 pt-2 pb-6 space-y-1 shadow-lg">
-            {navLinks.map((link) => {
-              const isActive = router.pathname === link.href || (link.href !== '/' && router.pathname.startsWith(link.href.split('/')[1]));
-              return (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`block rounded-lg px-4 py-3 text-base font-medium transition-all ${isActive
-                      ? 'text-primary bg-primary/5 font-semibold'
-                      : 'text-slate-600 hover:text-primary hover:bg-slate-50'
-                    }`}
-                >
-                  {link.name}
-                </Link>
-              );
-            })}
-            <a
-              href="tel:+917770018181"
-              className="mt-4 flex items-center justify-center gap-2 bg-primary text-white py-3 rounded-xl font-semibold shadow-md"
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              className="md:hidden border-t border-slate-100 bg-white/95 backdrop-blur-md px-4 pt-2 pb-6 space-y-1 shadow-lg overflow-hidden"
             >
-              <Phone className="h-4 w-4" />
-              <span>Call Us: +91 77700 18181</span>
-            </a>
-          </div>
-        )}
+              {navLinks.map((link) => {
+                const isActive = router.pathname === link.href || (link.href !== '/' && router.pathname.startsWith(link.href.split('/')[1]));
+                return (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`block rounded-lg px-4 py-3 text-base font-medium transition-all ${isActive
+                        ? 'text-primary bg-primary/5 font-semibold'
+                        : 'text-slate-600 hover:text-primary hover:bg-slate-50'
+                      }`}
+                  >
+                    {link.name}
+                  </Link>
+                );
+              })}
+              <a
+                href="tel:+917770018181"
+                className="mt-4 flex items-center justify-center gap-2 bg-primary text-white py-3 rounded-xl font-semibold shadow-md active:scale-95 transition-transform"
+              >
+                <Phone className="h-4 w-4 animate-pulse" />
+                <span>Call Us: +91 77700 18181</span>
+              </a>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </header>
 
       {/* Search Overlay */}
